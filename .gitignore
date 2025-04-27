@@ -1,0 +1,24 @@
+# .gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# VSCode
+.vscode/
+
+# Virtual environment
+.venv/
+env/
+ENV/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Selenium downloads
+*.crdownload
