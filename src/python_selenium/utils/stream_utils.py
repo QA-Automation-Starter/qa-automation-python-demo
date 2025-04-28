@@ -1,6 +1,6 @@
 from typing import Iterator
 
-from utils.object_utils import Predicate
+from python_selenium.utils.object_utils import Predicate
 
 
 def process_next[T](i: Iterator[T], p: Predicate[T]) -> Iterator[T]:

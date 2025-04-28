@@ -6,12 +6,12 @@ from functional import seq
 from hamcrest import assert_that
 from hamcrest.core.matcher import Matcher
 from tenacity import Retrying, stop_after_attempt, wait_exponential, retry_if_exception_type, before_sleep_log
-from utils.exception_utils import safely
-from utils.logger import LoggerMixin, traced
-from utils.object_utils import Supplier, Valid, valid
-from testing.abstract_configuration import AbstractConfiguration
-from testing.bdd_keywords import BddKeywords
-from utils.thread_utils import sleep_for
+from python_selenium.utils.exception_utils import safely
+from python_selenium.utils.logger import LoggerMixin, traced
+from python_selenium.utils.object_utils import Supplier, Valid, valid
+from python_selenium.testing.abstract_configuration import AbstractConfiguration
+from python_selenium.testing.bdd_keywords import BddKeywords
+from python_selenium.utils.thread_utils import sleep_for
 
 
 class GenericSteps[TConfiguration:AbstractConfiguration](BddKeywords['GenericSteps'], LoggerMixin):
@@ -228,7 +228,7 @@ class GenericSteps[TConfiguration:AbstractConfiguration](BddKeywords['GenericSte
         Returns:
             Self: these steps
         """
-        seq(range).for_each(step)
+        seq(range).for_each(step) # type: ignore
         return self
 
     # TODO parallel_repeating

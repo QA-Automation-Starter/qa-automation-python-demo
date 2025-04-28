@@ -4,7 +4,7 @@ from functools import cached_property, wraps
 from typing import Callable, ParamSpec, TypeVar, cast, final
 
 import allure
-from utils.string_utils import EMPTY, LF
+from python_selenium.utils.string_utils import EMPTY, LF
 
 
 def trace[T](value: T) -> T:

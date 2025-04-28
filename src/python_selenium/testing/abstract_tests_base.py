@@ -2,10 +2,10 @@ from abc import ABC
 from functools import cached_property
 from typing import Any, Type, final
 
-from testing.generic_steps import GenericSteps
-from testing.abstract_configuration import AbstractConfiguration
-from utils.logger import LoggerMixin
-from utils.object_utils import ImmutableMixin
+from python_selenium.testing.generic_steps import GenericSteps
+from python_selenium.testing.abstract_configuration import AbstractConfiguration
+from python_selenium.utils.logger import LoggerMixin
+from python_selenium.utils.object_utils import ImmutableMixin
 
 
 class AbstractTestsBase[TSteps:GenericSteps[Any], TConfiguration:AbstractConfiguration](

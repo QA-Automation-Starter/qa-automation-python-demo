@@ -3,7 +3,7 @@ import logging
 from typing import Any, Callable
 
 from returns.maybe import Maybe, Nothing, Some
-from utils.object_utils import Supplier
+from python_selenium.utils.object_utils import Supplier
 
 
 def safely[T](supplier: Supplier[T]) -> Maybe[T]:

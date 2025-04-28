@@ -4,8 +4,8 @@ from functools import cached_property
 from pathlib import Path
 from typing import final
 
-from utils.logger import LoggerMixin
-from utils.object_utils import ImmutableMixin
+from python_selenium.utils.logger import LoggerMixin
+from python_selenium.utils.object_utils import ImmutableMixin
 
 
 class AbstractConfiguration(ABC, LoggerMixin, ImmutableMixin):
