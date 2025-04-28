@@ -1,4 +1,4 @@
-from typing import Self
+from typing import Iterator, Self
 from hamcrest.core.matcher import Matcher
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -16,6 +16,10 @@ class TerminalXSteps(SeleniumSteps[TestConfiguration]):
     def clicking_login(self) -> Self:
         return self.clicking(lambda: self.element(
                     Locator(By.XPATH, "//div[contains(text(), 'התחברות')]")))
+
+    def clicking_search(self) -> Self:
+        return self.clicking(lambda: self.element(
+                    Locator(By.XPATH, "//button[@data-test-id='qa-header-search-button']")))
 
     def submitting_login(self) -> Self:
         return self.clicking(lambda: self.element(
@@ -35,4 +39,16 @@ class TerminalXSteps(SeleniumSteps[TestConfiguration]):
         return self.eventually_assert_that(lambda: self.element(
                     Locator(By.XPATH,"//button[@data-test-id='qa-header-profile-button']/span[2]"))
                         .text,
+                    by_rule)
+
+    def searching_for(self, text: str) -> Self:
+        return (self.clicking_search()
+            .and_.typing(lambda: self.element(
+                    Locator(By.ID, "//input[@data-test-id='qa-search-box-input']")),
+                text))
+
+    def the_search_hints(self, by_rule: Matcher[Iterator[str]]) -> Self:
+        return self.eventually_assert_that(lambda: (
+            element.text for element in self.elements(
+                    Locator(By.XPATH,"(//ul[@class='list_3tWy'])[2]/li/div/div/a"))),
                     by_rule)
