@@ -1,5 +1,7 @@
 from pathlib import Path
-from typing import final
+from typing import List, final
+from python_selenium.model.credentials import Credentials
+from python_selenium.model.user import User
 from python_selenium.testing.abstract_configuration import AbstractConfiguration
 
 
@@ -19,3 +21,12 @@ class TestConfiguration(AbstractConfiguration):
     @final
     def ui_url(self) -> str:
         return self.parser["ui"]["url"]
+
+    @property
+    @final
+    def users(self) -> List[User]:
+        users_section = self.parser["users"]
+        return [
+            User(Credentials.from_(username_password), name=key)
+            for key, username_password in users_section.items()
+        ]
