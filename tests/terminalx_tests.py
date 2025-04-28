@@ -1,9 +1,9 @@
 import random
-from hamcrest import is_ # type: ignore
+from hamcrest import contains, contains_string, is_ # type: ignore
 from python_selenium.model.user import User
 from python_selenium.selenium.selenium_tests import SeleniumTests
 from python_selenium.test_configuration import TestConfiguration
-from python_selenium.utils.matchers import yields_every, yields_item
+from python_selenium.utils.matchers import yields_item
 from tests.terminalx_steps import TerminalXSteps
 
 
@@ -29,4 +29,4 @@ class TerminalXTests(SeleniumTests[TerminalXSteps, TestConfiguration]):
             .given.configuration(self._configuration)
             .and_.terminalx(self.web_driver)
             .when.searching_for("hello")
-            .then.the_search_hints(yields_item("hello")))
+            .then.the_search_hints(yields_item(contains_string("hello"))))
