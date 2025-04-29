@@ -29,4 +29,4 @@ class TerminalXTests(SeleniumTests[TerminalXSteps, TestConfiguration]):
             .given.configuration(self._configuration)
             .and_.terminalx(self.web_driver)
             .when.searching_for("hello")
-            .then.the_search_hints(yields_item(contains_string("hello"))))
+            .then.the_search_hints(yields_item(contains_string("Hello"))))

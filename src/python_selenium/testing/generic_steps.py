@@ -50,7 +50,7 @@ class GenericSteps[TConfiguration:AbstractConfiguration](BddKeywords['GenericSte
         # NOTE: waits 1 sec after 1st failure, 2, 4, and 8 secs on subsequent;
         # see BddScenarioTests#should_retry
         self._retrying = Retrying(
-            stop=stop_after_attempt(3),
+            stop=stop_after_attempt(4),
             wait=wait_exponential(min=1, max=10),
             retry=retry_if_exception_type(Exception),
             before_sleep=before_sleep_log(self.log, logging.DEBUG)
