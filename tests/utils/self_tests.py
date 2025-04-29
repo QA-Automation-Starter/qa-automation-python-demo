@@ -61,7 +61,6 @@ class SelfTests(LoggerMixin):
         assert_that(Foo(id=1, mandatory="present").__str__(),
                     is_("Foo(id=1, mandatory='present', name='kuku')"))
 
-
     def should_retry(self):
         retry_policy = retry(
             stop=stop_after_attempt(1000),

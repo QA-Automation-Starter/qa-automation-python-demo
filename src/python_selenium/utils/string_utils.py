@@ -57,11 +57,9 @@ def to_string[T](indent: str = '    ',
                            show_static=show_static,
                            show_properties=show_properties,
                            show_address=show_address,
-                           str_length=str_length) # type: ignore
+                           str_length=str_length)  # type: ignore
 
         cls.__str__ = __str__
         return cls
 
     return decorator
-
-

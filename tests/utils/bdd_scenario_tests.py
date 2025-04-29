@@ -2,7 +2,7 @@ import random
 from datetime import timedelta
 from typing import final
 
-from hamcrest import is_ # type: ignore
+from hamcrest import is_  # type: ignore
 import pytest
 import tenacity
 from python_selenium.terminalx_configuration import TerminalXConfiguration

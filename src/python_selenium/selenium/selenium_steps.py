@@ -1,5 +1,15 @@
 from dataclasses import dataclass
-from typing import Callable, List, Optional, Protocol, Self, Tuple, Union, final, overload
+from typing import (
+    Callable,
+    List,
+    Optional,
+    Protocol,
+    Self,
+    Tuple,
+    Union,
+    final,
+    overload,
+)
 from selenium.webdriver.common.by import By as _By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
@@ -10,11 +20,11 @@ from python_selenium.utils.logger import traced
 
 
 class SearchContext(Protocol):
-    def find_element(self, by: str, value: Optional[str]) -> WebElement:
-        ...
+    def find_element(self, by: str, value: Optional[str]) -> WebElement: ...
 
-    def find_elements(self, by: str, value: Optional[str]) -> List[WebElement]:
-        ...
+    def find_elements(
+        self, by: str, value: Optional[str]) -> List[WebElement]: ...
+
 
 @dataclass(frozen=True)
 class Locator:
@@ -23,6 +33,7 @@ class Locator:
 
     def as_tuple(self) -> Tuple[str, str]:
         return (self.by, self.value)
+
 
 class By:
 
@@ -58,10 +69,14 @@ class By:
     def css_selector(value: str) -> Locator:
         return Locator(_By.CSS_SELECTOR, value)
 
+
 ElementSupplier = Callable[[], WebElement]
 LocatorOrSupplier = Union[Locator, ElementSupplier]
 
-class SeleniumSteps[TConfiguration:AbstractConfiguration](GenericSteps[TConfiguration]):
+
+class SeleniumSteps[TConfiguration: AbstractConfiguration](
+    GenericSteps[TConfiguration]
+):
     web_driver: WebDriver
 
     @final
@@ -100,16 +115,24 @@ class SeleniumSteps[TConfiguration:AbstractConfiguration](GenericSteps[TConfigur
 
     @final
     @traced
-    def elements(self, locator: Locator, context: Optional[SearchContext] = None) -> List[WebElement]:
+    def elements(
+        self, locator: Locator, context: Optional[SearchContext] = None
+    ) -> List[WebElement]:
         return (context or self.web_driver).find_elements(*locator.as_tuple())
 
     @final
     @traced
-    def element(self, locator: Locator, context: Optional[SearchContext] = None) -> WebElement:
-        return self._scroll_into_view((context or self.web_driver).find_element(*locator.as_tuple()))
+    def element(
+        self, locator: Locator, context: Optional[SearchContext] = None
+    ) -> WebElement:
+        return self._scroll_into_view(
+            (context or self.web_driver).find_element(*locator.as_tuple())
+        )
 
     def _scroll_into_view(self, element: WebElement) -> WebElement:
-        self.web_driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element) # type: ignore
+        self.web_driver.execute_script(
+            # type: ignore
+            "arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element)
         return element
 
     @final

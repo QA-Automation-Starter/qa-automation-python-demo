@@ -43,8 +43,6 @@ def should_enforce_immutability_with_dataclass():
         Foo().f = 9  # type: ignore -- f is frozen... just testing
 
 
-
-
 def should_support_immutability():
     class Status(Enum):
         DEFAULT = 0

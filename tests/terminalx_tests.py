@@ -1,5 +1,5 @@
 import random
-from hamcrest import is_ # type: ignore
+from hamcrest import is_  # type: ignore
 from python_selenium.model.user import User
 from python_selenium.selenium.selenium_tests import SeleniumTests
 from python_selenium.terminalx_configuration import TerminalXConfiguration
@@ -17,7 +17,6 @@ class TerminalXTests(SeleniumTests[TerminalXSteps, TerminalXConfiguration]):
             .and_.terminalx(self.web_driver)
             .when.logging_in_with(user.credentials)
             .then.the_user_logged_as(is_(user.name)))
-
 
     def should_login(self):
         self.login_section(random.choice(self._configuration.users))

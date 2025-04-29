@@ -1,25 +1,28 @@
 {
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000,
-
     "python.defaultInterpreterPath": ".venv/bin/python",
     "python.terminal.activateEnvironment": true,
-
     "python.testing.pytestArgs": [
         "-s",
         "tests"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
-
     "python.analysis.autoImportCompletions": true,
     "python.analysis.typeCheckingMode": "strict",
     "python.analysis.diagnosticSeverityOverrides": {
         "reportMissingTypeStubs": "none"
     },
-
     "python.analysis.indexing": true,
     "python.analysis.completeFunctionParens": true,
     "python.analysis.inlayHints.variableTypes": true,
-    "python.analysis.inlayHints.functionReturnTypes": true
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always",
+        "source.unusedImports": "always",
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    }
 }

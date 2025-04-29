@@ -48,7 +48,6 @@ def should_flat_map():
     class Foo:
         bars = [1, 2]
 
-
     (seq([Foo(), Foo()])
      .flat_map(lambda foo: foo.bars)
      .for_each(lambda bar: print(bar)))

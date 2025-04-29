@@ -14,6 +14,7 @@ from python_selenium.testing.abstract_tests_base import AbstractTestsBase
 TConfiguration = TypeVar("TConfiguration", bound=AbstractConfiguration)
 TSteps = TypeVar("TSteps", bound=SeleniumSteps[Any])
 
+
 class SeleniumTests(Generic[TSteps, TConfiguration], AbstractTestsBase[TSteps, TConfiguration]):
     web_driver: WebDriver
 
@@ -21,7 +22,7 @@ class SeleniumTests(Generic[TSteps, TConfiguration], AbstractTestsBase[TSteps, T
     def setup_method(self):
         super().setup_method()
         options = Options()
-        options.add_argument("--start-maximized") # type: ignore
+        options.add_argument("--start-maximized")  # type: ignore
 
         self.web_driver = Chrome(
             options,

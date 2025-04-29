@@ -228,7 +228,7 @@ class GenericSteps[TConfiguration:AbstractConfiguration](BddKeywords['GenericSte
         Returns:
             Self: these steps
         """
-        seq(range).for_each(step) # type: ignore
+        seq(range).for_each(step)  # type: ignore
         return self
 
     # TODO parallel_repeating
