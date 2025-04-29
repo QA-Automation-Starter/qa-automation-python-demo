@@ -7,6 +7,35 @@ from hamcrest.core.description import Description
 from hamcrest.core.helpers.wrap_matcher import wrap_matcher
 from hamcrest.core.matcher import Matcher
 
+from python_selenium.utils.logger import LoggerMixin
+
+
+class TracingMatcher[T](BaseMatcher[T], LoggerMixin):
+    """
+    A matcher wrapper that adds debug logging around another matcher.
+    """
+
+    def __init__(self, matcher: Matcher[T]) -> None:
+        self._matcher = matcher
+
+    def _matches(self, item: Any) -> bool:
+        result = self._matcher.matches(item)
+        self.log.debug(f"{item!r} -> {result}")
+        return result
+
+    def describe_to(self, description: Description) -> None:
+        self._matcher.describe_to(description)
+
+
+def tracing_matcher[T](matcher: Matcher[T]) -> TracingMatcher[T]:
+    """
+    Wraps a matcher with TraceMatcher to enable debug logging.
+
+    Usage:
+        assert_that(actual, trace(contains_string("hello")))
+    """
+    return TracingMatcher(matcher)
+
 
 class ContainsStringIgnoringCase(BaseMatcher[str]):
     def __init__(self, substring: str) -> None:

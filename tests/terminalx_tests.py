@@ -3,7 +3,7 @@ from hamcrest import is_  # type: ignore
 from python_selenium.model.user import User
 from python_selenium.selenium.selenium_tests import SeleniumTests
 from python_selenium.terminalx_configuration import TerminalXConfiguration
-from python_selenium.utils.matchers import contains_string_ignoring_case, yields_item
+from python_selenium.utils.matchers import contains_string_ignoring_case, tracing_matcher, yields_item
 from python_selenium.terminalx_steps import TerminalXSteps
 
 
@@ -30,4 +30,4 @@ class TerminalXTests(SeleniumTests[TerminalXSteps, TerminalXConfiguration]):
         for word in ["hello", "kitty"]:
             (self.steps
                 .when.searching_for(word)
-                .then.the_search_hints(yields_item(contains_string_ignoring_case(word))))
+                .then.the_search_hints(yields_item(tracing_matcher(contains_string_ignoring_case(word)))))
