@@ -1,27 +1,41 @@
+import inspect
+import logging.config
+import sys
+from typing import Callable, Optional
+
 import pytest
-import json
-import random
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 
-@pytest.fixture(scope="session")
-def random_user():
-    """
-    Reads users from users.json and returns a random user from the list.
-    """
-    with open("tests/resources/users.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-    users = data["users"]
-    return random.choice(users)
+# https://docs.python.org/3/whatsnew/3.13.html
+MIN_PYTHON_VERSION = (3, 13)
 
-@pytest.fixture
-def driver():
-    options = Options()
-    options.add_argument("--start-maximized")
 
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service, options=options)
-    yield driver
-    driver.quit()
+@pytest.hookimpl(tryfirst=True)
+def pytest_configure(config: pytest.Config) -> None:
+    if sys.version_info < MIN_PYTHON_VERSION:
+        raise pytest.UsageError(
+            f"Python version must be {MIN_PYTHON_VERSION} or higher for these tests.")
+
+    logging.config.fileConfig('logging.ini')
+
+
+def pytest_html_report_title(report) -> None:  # type: ignore
+    report.title = "Tests Report"
+
+
+@pytest.hookimpl(tryfirst=True)
+def pytest_runtest_makereport(item: pytest.Item, call: pytest.CallInfo[None]) -> None:
+    # NOTE: this is required in order to have source code added to report even for successful tests
+    if call.when == "call":
+        item._report_sections.append(  # type: ignore
+            ('call', 'body', get_test_body(item)))
+
+
+def get_test_body(item: pytest.Item) -> str:
+    function: Optional[Callable[..., None]] = getattr(item, 'function', None)
+    if function is None:
+        return "No function found for this test item."
+
+    try:
+        return inspect.getsource(function)
+    except Exception as e:
+        return f"Could not get source code: {str(e)}"

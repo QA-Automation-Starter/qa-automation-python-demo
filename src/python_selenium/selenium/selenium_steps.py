@@ -1,11 +1,12 @@
 from dataclasses import dataclass
-from typing import Callable, List, Optional, Protocol, Self, Tuple, Union, overload
+from typing import Callable, List, Optional, Protocol, Self, Tuple, Union, final, overload
 from selenium.webdriver.common.by import By as _By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 
 from python_selenium.testing.abstract_configuration import AbstractConfiguration
 from python_selenium.testing.generic_steps import GenericSteps
+from python_selenium.utils.logger import traced
 
 
 class SearchContext(Protocol):
@@ -63,6 +64,8 @@ LocatorOrSupplier = Union[Locator, ElementSupplier]
 class SeleniumSteps[TConfiguration:AbstractConfiguration](GenericSteps[TConfiguration]):
     web_driver: WebDriver
 
+    @final
+    @traced
     def clicking_once(self, element_supplier: ElementSupplier) -> Self:
         element_supplier().click()
         return self
@@ -73,9 +76,12 @@ class SeleniumSteps[TConfiguration:AbstractConfiguration](GenericSteps[TConfigur
     @overload
     def clicking(self, element: ElementSupplier) -> Self: ...
 
+    @final
     def clicking(self, element: LocatorOrSupplier) -> Self:
         return self.retrying(lambda: self.clicking_once(self._resolve(element)))
 
+    @final
+    @traced
     def typing_once(self, element_supplier: ElementSupplier, text: str) -> Self:
         element = element_supplier()
         element.clear()
@@ -88,12 +94,17 @@ class SeleniumSteps[TConfiguration:AbstractConfiguration](GenericSteps[TConfigur
     @overload
     def typing(self, element: ElementSupplier, text: str) -> Self: ...
 
+    @final
     def typing(self, element: LocatorOrSupplier, text: str) -> Self:
         return self.retrying(lambda: self.typing_once(self._resolve(element), text))
 
+    @final
+    @traced
     def elements(self, locator: Locator, context: Optional[SearchContext] = None) -> List[WebElement]:
         return (context or self.web_driver).find_elements(*locator.as_tuple())
 
+    @final
+    @traced
     def element(self, locator: Locator, context: Optional[SearchContext] = None) -> WebElement:
         return self._scroll_into_view((context or self.web_driver).find_element(*locator.as_tuple()))
 
@@ -101,6 +112,7 @@ class SeleniumSteps[TConfiguration:AbstractConfiguration](GenericSteps[TConfigur
         self.web_driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element) # type: ignore
         return element
 
+    @final
     def _resolve(self, element: LocatorOrSupplier) -> ElementSupplier:
         if isinstance(element, Locator):
             return lambda: self.element(element)
