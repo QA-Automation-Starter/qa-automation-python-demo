@@ -16,7 +16,7 @@ class TerminalXTests(SeleniumTests[TerminalXSteps, TestConfiguration]):
             .given.configuration(self._configuration)
             .and_.terminalx(self.web_driver)
             .when.logging_in_with(user.credentials)
-            .then.the_user_is_logged_in(is_(user.name)))
+            .then.the_user_logged_as(is_(user.name)))
 
 
     def should_login(self):

@@ -7,9 +7,6 @@ __pycache__/
 *.pyd
 *.log
 
-# VSCode
-.vscode/
-
 # Virtual environment
 .venv/
 env/
@@ -22,3 +19,8 @@ Thumbs.db
 
 # Selenium downloads
 *.crdownload
+
+# pytest html report
+report.html
+
+allure-results/

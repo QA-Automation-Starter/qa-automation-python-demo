@@ -9,7 +9,7 @@ description = "Python Selenium project"
 dependencies = []
 
 [tool.pytest.ini_options]
-addopts = "--import-mode=importlib"
+addopts = "--import-mode=importlib --html=report.html --self-contained-html --alluredir=allure-results"
 testpaths = ["tests"]
 pythonpath = ["src"]
 python_files = "*.py"

@@ -31,7 +31,7 @@ class TerminalXSteps(SeleniumSteps[TestConfiguration]):
             .and_.submitting_login())
 
     @traced
-    def the_user_is_logged_in(self, by_rule: Matcher[str]) -> Self:
+    def the_user_logged_as(self, by_rule: Matcher[str]) -> Self:
         return self.eventually_assert_that(lambda: self.element(
                     By.xpath("//button[@data-test-id='qa-header-profile-button']/span[2]")).text,
                     by_rule)
