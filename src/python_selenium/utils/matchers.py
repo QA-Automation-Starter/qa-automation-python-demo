@@ -1,5 +1,5 @@
 from datetime import date, datetime
-from typing import (Callable, Iterable, Iterator, List, Optional, Sequence,
+from typing import (Any, Callable, Iterable, Iterator, List, Optional, Sequence,
                     Union, cast, final, override)
 
 from hamcrest.core.base_matcher import BaseMatcher
@@ -7,6 +7,20 @@ from hamcrest.core.description import Description
 from hamcrest.core.helpers.wrap_matcher import wrap_matcher
 from hamcrest.core.matcher import Matcher
 
+class ContainsStringIgnoringCase(BaseMatcher[str]):
+    def __init__(self, substring: str) -> None:
+        self.substring: str = substring.lower()
+
+    def _matches(self, item: Any) -> bool:
+        if not isinstance(item, str):
+            return False
+        return self.substring in item.lower()
+
+    def describe_to(self, description: Description) -> None:
+        description.append_text(f"a string containing (case-insensitive) '{self.substring}'")
+
+def contains_string_ignoring_case(substring: str) -> ContainsStringIgnoringCase:
+    return ContainsStringIgnoringCase(substring)
 
 @final
 class IsIteratorYielding[T](BaseMatcher[Iterator[T]]):

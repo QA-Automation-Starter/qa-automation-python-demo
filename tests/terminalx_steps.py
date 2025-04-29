@@ -38,8 +38,7 @@ class TerminalXSteps(SeleniumSteps[TestConfiguration]):
 
     @traced
     def searching_for(self, text: str) -> Self:
-        return (self.clicking_search()
-            .and_.typing(By.xpath("//input[@data-test-id='qa-search-box-input']"), text))
+        return self.typing(By.xpath("//input[@data-test-id='qa-search-box-input']"), text)
 
     @traced
     def the_search_hints(self, by_rule: Matcher[Iterator[str]]) -> Self:

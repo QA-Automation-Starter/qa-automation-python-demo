@@ -1,9 +1,10 @@
 import random
-from hamcrest import contains, contains_string, is_ # type: ignore
+from hamcrest import is_
+import pytest # type: ignore
 from python_selenium.model.user import User
 from python_selenium.selenium.selenium_tests import SeleniumTests
 from python_selenium.test_configuration import TestConfiguration
-from python_selenium.utils.matchers import yields_item
+from python_selenium.utils.matchers import contains_string_ignoring_case, yields_item
 from tests.terminalx_steps import TerminalXSteps
 
 
@@ -26,7 +27,9 @@ class TerminalXTests(SeleniumTests[TerminalXSteps, TestConfiguration]):
         self.login_section(random.choice(self._configuration.users))
 
         (self.steps
-            .given.configuration(self._configuration)
-            .and_.terminalx(self.web_driver)
-            .when.searching_for("hello")
-            .then.the_search_hints(yields_item(contains_string("Hello"))))
+            .when.clicking_search())
+
+        for word in ["hello", "kitty"]:
+            (self.steps
+                .when.searching_for(word)
+                .then.the_search_hints(yields_item(contains_string_ignoring_case(word))))
