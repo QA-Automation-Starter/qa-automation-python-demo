@@ -3,12 +3,12 @@ from hamcrest.core.matcher import Matcher
 from selenium.webdriver.remote.webdriver import WebDriver
 from python_selenium.model.credentials import Credentials
 from python_selenium.selenium.selenium_steps import SeleniumSteps, By
-from python_selenium.test_configuration import TestConfiguration
+from python_selenium.terminalx_configuration import TerminalXConfiguration
 from python_selenium.utils.logger import traced
 
 
 @final
-class TerminalXSteps(SeleniumSteps[TestConfiguration]):
+class TerminalXSteps(SeleniumSteps[TerminalXConfiguration]):
     def terminalx(self, driver: WebDriver) -> Self:
         self.web_driver = driver
         self.web_driver.get(self.configured.ui_url)

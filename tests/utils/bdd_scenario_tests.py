@@ -5,7 +5,7 @@ from typing import final
 from hamcrest import is_ # type: ignore
 import pytest
 import tenacity
-from python_selenium.test_configuration import TestConfiguration
+from python_selenium.terminalx_configuration import TerminalXConfiguration
 from python_selenium.utils.logger import *
 from python_selenium.testing.abstract_tests_base import *
 from python_selenium.testing.exceptions import *
@@ -14,7 +14,7 @@ from python_selenium.testing.generic_steps import *
 
 @logger
 @final
-class BddScenarioTests(AbstractTestsBase[GenericSteps[TestConfiguration], TestConfiguration]):
+class BddScenarioTests(AbstractTestsBase[GenericSteps[TerminalXConfiguration], TerminalXConfiguration]):
     _steps_type = GenericSteps
 
     def should_work(self):

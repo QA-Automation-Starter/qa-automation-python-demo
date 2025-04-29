@@ -5,7 +5,7 @@ from python_selenium.model.user import User
 from python_selenium.testing.abstract_configuration import AbstractConfiguration
 
 
-class TestConfiguration(AbstractConfiguration):
+class TerminalXConfiguration(AbstractConfiguration):
 
     def __init__(self, path: Path = Path("tests/resources/default-config.ini")):
         """

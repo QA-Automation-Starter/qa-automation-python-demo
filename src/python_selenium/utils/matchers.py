@@ -109,7 +109,7 @@ class IsIteratorYieldingAll[T](BaseMatcher[Iterator[T]]):
 DateOrDateTime = Union[date, datetime]
 
 
-class IsWithinDates(BaseMatcher):
+class IsWithinDates(BaseMatcher[DateOrDateTime]):
     def __init__(self, start_date: Optional[DateOrDateTime], end_date: Optional[DateOrDateTime]) -> None:
         self.start_date = start_date
         self.end_date = end_date
