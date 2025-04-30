@@ -1,9 +1,9 @@
-from hamcrest import is_ # type: ignore
+from hamcrest import is_  # type: ignore
 from python_selenium.examples.swagger_petstore_configuration import SwaggerPetstoreConfiguration
 from python_selenium.examples.swagger_petstore_steps import SwaggerPetstoreSteps
 from python_selenium.model.examples.swagger_petstore_pet import SwaggerPetstorePet
 from python_selenium.rest.rest_tests import RestTests
-from python_selenium.utils.matchers import yields_item
+from python_selenium.utils.matchers import tracing_matcher, yields_item
 
 
 class SwaggerPetstoreTests(
@@ -18,4 +18,4 @@ class SwaggerPetstoreTests(
             .and_.swagger_petstore(self.rest_client)
             .when.adding(random_pet)
             .then.the_available_pets(yields_item(
-                is_(random_pet))))
+                tracing_matcher(is_(random_pet)))))
