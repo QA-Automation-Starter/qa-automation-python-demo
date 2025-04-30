@@ -29,7 +29,8 @@ class SwaggerPetstoreSteps(RestSteps[SwaggerPetstoreConfiguration]):
         ))
 
     @traced
-    def the_available_pets(self, by_rule: Matcher[Iterator[SwaggerPetstorePet]]) -> Self:
+    def the_available_pets(self, by_rule: Matcher
+                           [Iterator[SwaggerPetstorePet]]) -> Self:
         return self.the_invocation(Request(
             method="GET",
             url=f"{self.configured.endpoint_url}/pet/findByStatus",

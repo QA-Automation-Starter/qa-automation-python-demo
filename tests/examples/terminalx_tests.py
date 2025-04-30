@@ -30,4 +30,7 @@ class TerminalXTests(SeleniumTests[TerminalXSteps, TerminalXConfiguration]):
         for word in ["hello", "kitty"]:
             (self.steps
                 .when.searching_for(word)
-                .then.the_search_hints(yields_item(tracing_matcher(contains_string_ignoring_case(word)))))
+                .then.the_search_hints(
+                    yields_item(
+                        tracing_matcher(
+                            contains_string_ignoring_case(word)))))

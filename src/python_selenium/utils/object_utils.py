@@ -170,7 +170,8 @@ def valid[T:Valid](value: T) -> T:
     Returns:
         T:Valid: the validated object
     """
-    if not (hasattr(value, 'is_valid') and callable(getattr(value, 'is_valid'))):
+    if not (hasattr(value, 'is_valid') and callable(
+            getattr(value, 'is_valid'))):
         raise TypeError(
             f"{value.__class__.__name__} does not conform to the Valid protocol")
 

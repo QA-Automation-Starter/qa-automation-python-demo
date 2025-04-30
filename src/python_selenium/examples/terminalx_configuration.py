@@ -7,7 +7,8 @@ from python_selenium.testing.abstract_configuration import AbstractConfiguration
 
 class TerminalXConfiguration(AbstractConfiguration):
 
-    def __init__(self, path: Path = Path("resources/terminalx-default-config.ini")):
+    def __init__(
+            self, path: Path = Path("resources/terminalx-default-config.ini")):
         """
         Initializes with specified `config.ini` file.
 

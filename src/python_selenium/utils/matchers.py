@@ -144,7 +144,9 @@ DateOrDateTime = Union[date, datetime]
 
 
 class IsWithinDates(BaseMatcher[DateOrDateTime]):
-    def __init__(self, start_date: Optional[DateOrDateTime], end_date: Optional[DateOrDateTime]) -> None:
+    def __init__(
+            self, start_date: Optional[DateOrDateTime],
+            end_date: Optional[DateOrDateTime]) -> None:
         self.start_date = start_date
         self.end_date = end_date
 
@@ -154,7 +156,8 @@ class IsWithinDates(BaseMatcher[DateOrDateTime]):
 
         # Convert item to a consistent type for comparison
         if isinstance(item, datetime):
-            item = item.date() if isinstance(self.start_date, date) or isinstance(
+            item = item.date() if isinstance(
+                self.start_date, date) or isinstance(
                 self.end_date, date) else item
         elif isinstance(item, date) and (isinstance(self.start_date, datetime) or isinstance(self.end_date, datetime)):
             item = datetime.combine(item, datetime.min.time())
@@ -167,7 +170,9 @@ class IsWithinDates(BaseMatcher[DateOrDateTime]):
 
         end = self.end_date
         if end is not None:
-            end = end.date() if isinstance(end, datetime) and isinstance(item, date) else end
+            end = end.date() if isinstance(
+                end, datetime) and isinstance(
+                item, date) else end
 
         # Perform the comparison, handling open-ended ranges
         if start is None and end is not None:
@@ -190,7 +195,9 @@ class IsWithinDates(BaseMatcher[DateOrDateTime]):
                 f"a date within {self.start_date} and {self.end_date}")
 
 
-def within_dates(start_date: Optional[DateOrDateTime], end_date: Optional[DateOrDateTime]) -> IsWithinDates:
+def within_dates(
+        start_date: Optional[DateOrDateTime],
+        end_date: Optional[DateOrDateTime]) -> IsWithinDates:
     return IsWithinDates(start_date, end_date)
 
 
@@ -227,7 +234,8 @@ def yields_every[T](match: Union[Matcher[T], T]) -> Matcher[Iterator[T]]:
     return IsStreamContainingEvery(wrap_matcher(match))
 
 
-def yields_items[T](matches: Iterable[Union[Matcher[T], T]]) -> Matcher[Iterator[T]]:
+def yields_items[T](matches: Iterable[Union[Matcher[T],
+                                            T]]) -> Matcher[Iterator[T]]:
     """
     Matches if each specified item is yielded at least once by the iterator.
 
@@ -303,7 +311,7 @@ def adapted_sequence[T, R](
     class AdaptedMatcher(BaseMatcher[Sequence[T]]):
         @override
         def _matches(self, item: Sequence[T]) -> bool:
-            return matcher.matches([converter(item) for item in item])
+            return matcher.matches([converter(x) for x in item])
 
         @override
         def describe_to(self, description: Description) -> None:

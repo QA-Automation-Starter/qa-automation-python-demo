@@ -11,7 +11,9 @@ TConfiguration = TypeVar("TConfiguration", bound=AbstractConfiguration)
 TSteps = TypeVar("TSteps", bound=RestSteps[Any])
 
 
-class RestTests(Generic[TSteps, TConfiguration], AbstractTestsBase[TSteps, TConfiguration]):
+class RestTests(
+        Generic[TSteps, TConfiguration],
+        AbstractTestsBase[TSteps, TConfiguration]):
     rest_client: requests.Session
 
     @override
@@ -25,5 +27,3 @@ class RestTests(Generic[TSteps, TConfiguration], AbstractTestsBase[TSteps, TConf
             self.rest_client.close()
         finally:
             super().teardown_method()
-
-

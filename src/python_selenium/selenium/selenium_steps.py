@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from typing import (
     Callable,
+    Iterator,
     List,
     Optional,
     Protocol,
@@ -10,6 +11,8 @@ from typing import (
     final,
     overload,
 )
+from hamcrest.core.matcher import Matcher
+
 from selenium.webdriver.common.by import By as _By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
@@ -114,15 +117,23 @@ class SeleniumSteps[TConfiguration: AbstractConfiguration](
         return self.retrying(lambda: self.typing_once(self._resolve(element), text))
 
     @final
-    @traced
-    def elements(
-        self, locator: Locator, context: Optional[SearchContext] = None
-    ) -> List[WebElement]:
-        return (context or self.web_driver).find_elements(*locator.as_tuple())
+    def the_element(self, locator: Locator, by_rule: Matcher[WebElement], context: Optional[SearchContext] = None) -> Self:
+        return self.eventually_assert_that(lambda: self._element(locator, context), by_rule)
+
+    @final
+    def the_elements(self, locator: Locator, by_rule: Matcher[Iterator[WebElement]], context: Optional[SearchContext] = None) -> Self:
+        return self.eventually_assert_that(lambda: self._elements(locator, context), by_rule)
 
     @final
     @traced
-    def element(
+    def _elements(
+        self, locator: Locator, context: Optional[SearchContext] = None
+    ) -> Iterator[WebElement]:
+        return iter((context or self.web_driver).find_elements(*locator.as_tuple()))
+
+    @final
+    @traced
+    def _element(
         self, locator: Locator, context: Optional[SearchContext] = None
     ) -> WebElement:
         return self._scroll_into_view(
@@ -137,5 +148,5 @@ class SeleniumSteps[TConfiguration: AbstractConfiguration](
     @final
     def _resolve(self, element: LocatorOrSupplier) -> ElementSupplier:
         if isinstance(element, Locator):
-            return lambda: self.element(element)
+            return lambda: self._element(element)
         return element

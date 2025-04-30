@@ -8,7 +8,7 @@ from requests import Response
 from python_selenium.utils.string_utils import to_string
 
 
-@dataclass
+@dataclass(eq=True)
 @to_string()
 class SwaggerPetstorePet:
     name: str
@@ -20,4 +20,8 @@ class SwaggerPetstorePet:
 
     @staticmethod
     def from_(response: Response) -> Iterator[SwaggerPetstorePet]:
-        return (SwaggerPetstorePet(**pet) for pet in response.json())
+        return (
+            SwaggerPetstorePet(name=pet["name"], status=pet["status"])
+            for pet in response.json()
+            if "name" in pet and "status" in pet
+        )
