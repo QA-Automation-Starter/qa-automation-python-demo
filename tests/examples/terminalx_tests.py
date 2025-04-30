@@ -1,17 +1,17 @@
 import random
 from hamcrest import is_  # type: ignore
-from python_selenium.model.user import User
+from python_selenium.model.examples.terminalx_user import TerminalXUser
 from python_selenium.selenium.selenium_tests import SeleniumTests
-from python_selenium.terminalx_configuration import TerminalXConfiguration
+from python_selenium.examples.terminalx_configuration import TerminalXConfiguration
 from python_selenium.utils.matchers import contains_string_ignoring_case, tracing_matcher, yields_item
-from python_selenium.terminalx_steps import TerminalXSteps
+from python_selenium.examples.terminalx_steps import TerminalXSteps
 
 
 class TerminalXTests(SeleniumTests[TerminalXSteps, TerminalXConfiguration]):
     _steps_type = TerminalXSteps
     _configuration = TerminalXConfiguration()
 
-    def login_section(self, user: User):
+    def login_section(self, user: TerminalXUser):
         (self.steps
             .given.configuration(self._configuration)
             .and_.terminalx(self.web_driver)

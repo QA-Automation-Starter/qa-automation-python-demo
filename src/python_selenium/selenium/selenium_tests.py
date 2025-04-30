@@ -30,5 +30,8 @@ class SeleniumTests(Generic[TSteps, TConfiguration], AbstractTestsBase[TSteps, T
 
     @override
     def teardown_method(self):
-        super().teardown_method()
-        self.web_driver.quit()
+        try:
+            self.web_driver.quit()
+        finally:
+            super().teardown_method()
+

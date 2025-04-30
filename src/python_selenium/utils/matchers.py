@@ -10,6 +10,7 @@ from hamcrest.core.matcher import Matcher
 from python_selenium.utils.logger import LoggerMixin
 
 
+# FIXME all these classes should be contained by their associated helpers
 class TracingMatcher[T](BaseMatcher[T], LoggerMixin):
     """
     A matcher wrapper that adds debug logging around another matcher.

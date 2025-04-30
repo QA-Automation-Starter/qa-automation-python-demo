@@ -5,7 +5,7 @@ from typing import final
 from hamcrest import is_  # type: ignore
 import pytest
 import tenacity
-from python_selenium.terminalx_configuration import TerminalXConfiguration
+from python_selenium.examples.terminalx_configuration import TerminalXConfiguration
 from python_selenium.utils.logger import *
 from python_selenium.testing.abstract_tests_base import *
 from python_selenium.testing.exceptions import *

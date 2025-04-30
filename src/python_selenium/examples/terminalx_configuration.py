@@ -1,13 +1,13 @@
 from pathlib import Path
 from typing import List, final
-from python_selenium.model.credentials import Credentials
-from python_selenium.model.user import User
+from python_selenium.model.examples.terminalx_credentials import TerminalXCredentials
+from python_selenium.model.examples.terminalx_user import TerminalXUser
 from python_selenium.testing.abstract_configuration import AbstractConfiguration
 
 
 class TerminalXConfiguration(AbstractConfiguration):
 
-    def __init__(self, path: Path = Path("tests/resources/default-config.ini")):
+    def __init__(self, path: Path = Path("resources/terminalx-default-config.ini")):
         """
         Initializes with specified `config.ini` file.
 
@@ -24,9 +24,9 @@ class TerminalXConfiguration(AbstractConfiguration):
 
     @property
     @final
-    def users(self) -> List[User]:
+    def users(self) -> List[TerminalXUser]:
         users_section = self.parser["users"]
         return [
-            User(Credentials.from_(username_password), name=key)
+            TerminalXUser(TerminalXCredentials.from_(username_password), name=key)
             for key, username_password in users_section.items()
         ]

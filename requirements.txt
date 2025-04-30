@@ -9,3 +9,4 @@ ppretty
 allure-pytest
 more-itertools
 returns
+requests

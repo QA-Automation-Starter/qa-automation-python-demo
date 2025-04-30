@@ -1,9 +1,9 @@
 from typing import Iterator, Self, final
 from hamcrest.core.matcher import Matcher
 from selenium.webdriver.remote.webdriver import WebDriver
-from python_selenium.model.credentials import Credentials
+from python_selenium.model.examples.terminalx_credentials import TerminalXCredentials
 from python_selenium.selenium.selenium_steps import SeleniumSteps, By
-from python_selenium.terminalx_configuration import TerminalXConfiguration
+from python_selenium.examples.terminalx_configuration import TerminalXConfiguration
 from python_selenium.utils.logger import traced
 
 
@@ -24,7 +24,7 @@ class TerminalXSteps(SeleniumSteps[TerminalXConfiguration]):
         return self.clicking(By.xpath("//button[contains(text(), 'התחברות')]"))
 
     @traced
-    def logging_in_with(self, credentials: Credentials) -> Self:
+    def logging_in_with(self, credentials: TerminalXCredentials) -> Self:
         return (self.clicking_login()
                 .and_.typing(By.id("qa-login-email-input"), credentials.username)
                 .and_.typing(By.id("qa-login-password-input"), credentials.password)

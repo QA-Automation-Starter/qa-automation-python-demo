@@ -130,8 +130,7 @@ class SeleniumSteps[TConfiguration: AbstractConfiguration](
         )
 
     def _scroll_into_view(self, element: WebElement) -> WebElement:
-        self.web_driver.execute_script(
-            # type: ignore
+        self.web_driver.execute_script( # type: ignore
             "arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element)
         return element
 
