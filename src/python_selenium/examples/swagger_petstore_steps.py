@@ -16,7 +16,7 @@ from python_selenium.utils.matchers import adapted_object
 class SwaggerPetstoreSteps(RestSteps[SwaggerPetstoreConfiguration]):
 
     def swagger_petstore(self, client: requests.Session):
-        self.rest_client = client
+        self._rest_session = client
         return self
 
     @traced

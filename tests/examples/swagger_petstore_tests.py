@@ -3,7 +3,7 @@ from python_selenium.examples.swagger_petstore_configuration import SwaggerPetst
 from python_selenium.examples.swagger_petstore_steps import SwaggerPetstoreSteps
 from python_selenium.model.examples.swagger_petstore_pet import SwaggerPetstorePet
 from python_selenium.rest.rest_tests import RestTests
-from python_selenium.utils.matchers import tracing_matcher, yields_item
+from python_selenium.utils.matchers import traced, yields_item
 
 
 class SwaggerPetstoreTests(
@@ -15,7 +15,6 @@ class SwaggerPetstoreTests(
         random_pet = SwaggerPetstorePet.random()
         (self.steps
             .given.configuration(self._configuration)
-            .and_.swagger_petstore(self.rest_client)
+            .and_.swagger_petstore(self._rest_session)
             .when.adding(random_pet)
-            .then.the_available_pets(yields_item(
-                tracing_matcher(is_(random_pet)))))
+            .then.the_available_pets(yields_item(traced(is_(random_pet)))))

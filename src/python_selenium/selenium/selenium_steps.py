@@ -80,7 +80,7 @@ LocatorOrSupplier = Union[Locator, ElementSupplier]
 class SeleniumSteps[TConfiguration: AbstractConfiguration](
     GenericSteps[TConfiguration]
 ):
-    web_driver: WebDriver
+    _web_driver: WebDriver
 
     @final
     @traced
@@ -129,7 +129,7 @@ class SeleniumSteps[TConfiguration: AbstractConfiguration](
     def _elements(
         self, locator: Locator, context: Optional[SearchContext] = None
     ) -> Iterator[WebElement]:
-        return iter((context or self.web_driver).find_elements(*locator.as_tuple()))
+        return iter((context or self._web_driver).find_elements(*locator.as_tuple()))
 
     @final
     @traced
@@ -137,11 +137,11 @@ class SeleniumSteps[TConfiguration: AbstractConfiguration](
         self, locator: Locator, context: Optional[SearchContext] = None
     ) -> WebElement:
         return self._scroll_into_view(
-            (context or self.web_driver).find_element(*locator.as_tuple())
+            (context or self._web_driver).find_element(*locator.as_tuple())
         )
 
     def _scroll_into_view(self, element: WebElement) -> WebElement:
-        self.web_driver.execute_script( # type: ignore
+        self._web_driver.execute_script( # type: ignore
             "arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element)
         return element
 

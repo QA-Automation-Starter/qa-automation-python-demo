@@ -15,8 +15,10 @@ TConfiguration = TypeVar("TConfiguration", bound=AbstractConfiguration)
 TSteps = TypeVar("TSteps", bound=SeleniumSteps[Any])
 
 
-class SeleniumTests(Generic[TSteps, TConfiguration], AbstractTestsBase[TSteps, TConfiguration]):
-    web_driver: WebDriver
+class SeleniumTests(
+        Generic[TSteps, TConfiguration],
+        AbstractTestsBase[TSteps, TConfiguration]):
+    _web_driver: WebDriver
 
     @override
     def setup_method(self):
@@ -24,14 +26,13 @@ class SeleniumTests(Generic[TSteps, TConfiguration], AbstractTestsBase[TSteps, T
         options = Options()
         options.add_argument("--start-maximized")  # type: ignore
 
-        self.web_driver = Chrome(
+        self._web_driver = Chrome(
             options,
             Service(ChromeDriverManager().install()))
 
     @override
     def teardown_method(self):
         try:
-            self.web_driver.quit()
+            self._web_driver.quit()
         finally:
             super().teardown_method()
-

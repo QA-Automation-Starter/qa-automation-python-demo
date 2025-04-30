@@ -11,8 +11,8 @@ from python_selenium.utils.matchers import adapted_iterator, adapted_object
 @final
 class TerminalXSteps(SeleniumSteps[TerminalXConfiguration]):
     def terminalx(self, driver: WebDriver) -> Self:
-        self.web_driver = driver
-        self.web_driver.get(self.configured.ui_url)
+        self._web_driver = driver
+        self._web_driver.get(self.configured.ui_url)
         return self
 
     def clicking_login(self) -> Self:
@@ -35,7 +35,7 @@ class TerminalXSteps(SeleniumSteps[TerminalXConfiguration]):
                 .and_.submitting_login())
 
     @traced
-    def the_user_logged_as(self, by_rule: Matcher[str]) -> Self:
+    def the_user_logged_in(self, by_rule: Matcher[str]) -> Self:
         return self.the_element(
             By.xpath(
                 "//button[@data-test-id='qa-header-profile-button']/span[2]"),
