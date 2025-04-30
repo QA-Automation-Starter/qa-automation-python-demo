@@ -106,4 +106,4 @@ def should_be_singleton():
     assert GooSingleton(1) != GooSingleton(2)
 
     assert BarSingleton(1) == BarSingleton(2)
-    assert BarSingleton(3).i == 1
+    assert BarSingleton(3).i == 1  # type: ignore

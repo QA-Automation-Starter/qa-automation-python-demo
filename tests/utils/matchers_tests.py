@@ -4,8 +4,7 @@ from typing import Callable
 import attr
 import pytest
 from functional import seq
-from hamcrest import *
-from hamcrest import assert_that
+from hamcrest import all_of, assert_that, has_item, has_property, is_  # type: ignore -- seq
 from python_selenium.utils.string_utils import to_string
 from python_selenium.utils.matchers import *
 from python_selenium.utils.object_utils import *
@@ -63,8 +62,8 @@ def should_have_item():
 def should_adapt_sequence():
     # NOTE: instead of building full object, can adapt to specific field:
     assert_that([Foo(), Foo().with_(name="muku")],
-                adapted_sequence(lambda foo: foo.name,   # type: ignore -- seq
-                                 has_item(is_("muku"))))
+                adapted_sequence(lambda foo: foo.name,  # type: ignore -- seq
+                                 has_item(is_("muku"))))  # type: ignore -- seq
 
 
 def should_match_item_in_iterator():
@@ -73,18 +72,22 @@ def should_match_item_in_iterator():
 
 
 def should_match_items_in_iterator():
-    assert_that(iter([Foo(), Foo().with_(name="muku"), Foo().with_(name="kuku")]),
-                yields_items([Foo().with_(name="muku"), Foo()]))
+    assert_that(iter([Foo(), Foo().with_(name="muku"), Foo().with_(
+        name="kuku")]), yields_items([Foo().with_(name="muku"), Foo()]))
 
 
 def should_match_all_in_iterator():
-    assert_that(iter([Foo(), Foo().with_(name="muku"), Foo().with_(name="kuku")]),
-                yields_every(has_property("name")))
+    assert_that(
+        iter(
+            [Foo(),
+             Foo().with_(name="muku"),
+             Foo().with_(name="kuku")]),
+        yields_every(has_property("name")))
 
 
 def should_adapt_iterator():
-    assert_that(iter([Foo(), Foo().with_(name="muku")]),
-                adapted_iterator(lambda foo: foo.name, yields_item(is_("muku"))))
+    assert_that(iter([Foo(), Foo().with_(name="muku")]), adapted_iterator(
+        lambda foo: foo.name, yields_item(is_("muku"))))
 
 
 def should_adapt_stream():
@@ -95,7 +98,7 @@ def should_adapt_stream():
     '''
     assert_that(iter(seq([Foo(), Foo().with_(name="muku"),
                           Foo().with_(name="other")])
-                     .peek(print)),  # only first Foos are printed
+                     .peek(print)),   # type: ignore -- seq
                 adapted_iterator(lambda foo: foo.name,  # type: ignore -- seq
                                  yields_item(is_("muku"))))
 
@@ -110,7 +113,9 @@ def should_adapt_stream():
         (datetime(2023, 12, 31), datetime(2023, 1, 1), datetime(2023, 12, 31)),
     ]
 )
-def should_match_within_dates(test_date: datetime, start_date: Union[datetime, None], end_date: Union[datetime, None]):
+def should_match_within_dates(
+        test_date: datetime, start_date: Union[datetime, None],
+        end_date: Union[datetime, None]):
     assert_that(test_date, within_dates(start_date, end_date))
 
 
@@ -121,6 +126,8 @@ def should_match_within_dates(test_date: datetime, start_date: Union[datetime, N
         (datetime(2024, 1, 1), datetime(2023, 1, 1), datetime(2023, 12, 31)),
     ]
 )
-def should_fail_not_within_dates(test_date: datetime, start_date: Union[datetime, None], end_date: Union[datetime, None]):
+def should_fail_not_within_dates(
+        test_date: datetime, start_date: Union[datetime, None],
+        end_date: Union[datetime, None]):
     with pytest.raises(AssertionError):
         assert_that(test_date, within_dates(start_date, end_date))
