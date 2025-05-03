@@ -1,3 +1,4 @@
+from enum import Enum
 from typing import Self, final
 from hamcrest import is_  # type: ignore
 import requests
@@ -9,6 +10,13 @@ from python_selenium.testing.generic_steps import GenericSteps
 from python_selenium.utils.logger import traced
 from hamcrest.core.matcher import Matcher
 
+
+class HttpMethod(str, Enum):
+    GET = "GET"
+    POST = "POST"
+    PUT = "PUT"
+    DELETE = "DELETE"
+    PATCH = "PATCH"
 
 class RestSteps[TConfiguration: AbstractConfiguration](
     GenericSteps[TConfiguration]
