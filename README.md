@@ -79,11 +79,12 @@ def should_add(self):
 
 ## Requirements
 
-- Python 3.10+
-- Google Chrome (with drivers)
+- Python 3.13
+- Google Chrome
 
 ## TODO
 
 - Add GitHub Actions workflow for CI
 - Add browser matrix support (Safari, Edge)
-- Extend test coverage (API + UI)
+- Make the BDD intro words appear in Allure report
+- Extend test examples (API + UI)
