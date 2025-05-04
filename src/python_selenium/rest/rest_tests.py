@@ -1,13 +1,13 @@
 from typing import Any, Generic, TypeVar, override
 
+from python_selenium.rest.rest_configuration import RestConfiguration
 from python_selenium.rest.rest_steps import RestSteps
-from python_selenium.testing.abstract_configuration import AbstractConfiguration
 from python_selenium.testing.abstract_tests_base import AbstractTestsBase
 import requests
 
 # NOTE: python limitation; we cannot declare it such as:
 # class SeleniumTests[TSteps:SeleniumSteps[TConfiguration], TConfiguration: AbstractConfiguration](AbstractTestsBase[TSteps, TConfiguration]):
-TConfiguration = TypeVar("TConfiguration", bound=AbstractConfiguration)
+TConfiguration = TypeVar("TConfiguration", bound=RestConfiguration)
 TSteps = TypeVar("TSteps", bound=RestSteps[Any])
 
 
@@ -19,7 +19,7 @@ class RestTests(
     @override
     def setup_method(self):
         super().setup_method()
-        self._rest_session = requests.Session()
+        self._rest_session = self._configuration.rest_session
 
     @override
     def teardown_method(self):

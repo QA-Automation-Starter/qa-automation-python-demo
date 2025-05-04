@@ -5,7 +5,7 @@ import requests
 
 from requests import Request, Response
 
-from python_selenium.testing.abstract_configuration import AbstractConfiguration
+from python_selenium.rest.rest_configuration import RestConfiguration
 from python_selenium.testing.generic_steps import GenericSteps
 from python_selenium.utils.logger import traced
 from hamcrest.core.matcher import Matcher
@@ -18,7 +18,8 @@ class HttpMethod(str, Enum):
     DELETE = "DELETE"
     PATCH = "PATCH"
 
-class RestSteps[TConfiguration: AbstractConfiguration](
+
+class RestSteps[TConfiguration: RestConfiguration](
     GenericSteps[TConfiguration]
 ):
     _rest_session: requests.Session

@@ -17,7 +17,7 @@ from selenium.webdriver.common.by import By as _By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 
-from python_selenium.testing.abstract_configuration import AbstractConfiguration
+from python_selenium.selenium.selenium_configuration import SeleniumConfiguration
 from python_selenium.testing.generic_steps import GenericSteps
 from python_selenium.utils.logger import traced
 
@@ -77,7 +77,7 @@ ElementSupplier = Callable[[], WebElement]
 LocatorOrSupplier = Union[Locator, ElementSupplier]
 
 
-class SeleniumSteps[TConfiguration: AbstractConfiguration](
+class SeleniumSteps[TConfiguration: SeleniumConfiguration](
     GenericSteps[TConfiguration]
 ):
     _web_driver: WebDriver
