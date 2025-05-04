@@ -51,6 +51,12 @@ No setup is needed—just open in Codespaces and start coding.
 > NOTE: Selenium tests will not work here, unless changed to work with
 > SauceLabs, or similar remote browser testing service.
 
+
+## Reports
+
+1. `report.html` is generated in root-folder, just open it in a Web-browser
+2. `allure-results` -- this requires running the Allure server
+
 ## Example Tests
 
 ```python
