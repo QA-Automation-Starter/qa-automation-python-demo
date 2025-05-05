@@ -14,12 +14,12 @@ TSteps = TypeVar("TSteps", bound=RestSteps[Any])
 class RestTests(
         Generic[TSteps, TConfiguration],
         AbstractTestsBase[TSteps, TConfiguration]):
-    _rest_session: requests.Session
+    _rest_session: requests.Session # not thread safe
 
     @override
     def setup_method(self):
         super().setup_method()
-        self._rest_session = self._configuration.rest_session
+        self._rest_session = requests.Session()
 
     @override
     def teardown_method(self):

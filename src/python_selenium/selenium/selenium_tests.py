@@ -1,5 +1,7 @@
 from typing import Any, Generic, TypeVar, override
+from selenium.webdriver import Chrome
 from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.webdriver.chrome.options import Options
 
 from python_selenium.selenium.selenium_configuration import SeleniumConfiguration
 from python_selenium.selenium.selenium_steps import SeleniumSteps
@@ -14,12 +16,17 @@ TSteps = TypeVar("TSteps", bound=SeleniumSteps[Any])
 class SeleniumTests(
         Generic[TSteps, TConfiguration],
         AbstractTestsBase[TSteps, TConfiguration]):
-    _web_driver: WebDriver
+    _web_driver: WebDriver  # not thread safe
 
     @override
     def setup_method(self):
         super().setup_method()
-        self._web_driver = self._configuration.web_driver
+
+        options = Options()
+        options.add_argument("--start-maximized")  # type: ignore
+        self._web_driver = Chrome(
+            options,
+            self._configuration.web_driver_service)
 
     @override
     def teardown_method(self):

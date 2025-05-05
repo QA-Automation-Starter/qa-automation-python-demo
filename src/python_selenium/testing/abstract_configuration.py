@@ -31,6 +31,8 @@ class AbstractConfiguration(ABC, LoggerMixin, ImmutableMixin):
         self.log.debug(f"using configuration from {path}")
         self._path = path
 
+    # NOTE if properties cannot be cached, this is a red-flag
+    # configuration properties should be immutable.
     @final
     @cached_property
     def parser(self) -> configparser.ConfigParser:
