@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 from typing import Iterator
 
 from python_selenium.utils.object_utils import Predicate

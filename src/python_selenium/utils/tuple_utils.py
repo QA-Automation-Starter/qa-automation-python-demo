@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 from dataclasses import is_dataclass, replace, fields
 from typing import Any, Self, Tuple, Type
 

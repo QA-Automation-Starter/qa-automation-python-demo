@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 from pathlib import Path
 from typing import List, final
 from python_selenium.model.examples.terminalx_credentials import TerminalXCredentials

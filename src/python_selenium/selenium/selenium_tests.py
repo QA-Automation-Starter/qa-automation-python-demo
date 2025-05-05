@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 from typing import Any, Generic, TypeVar, override
 from selenium.webdriver import Chrome
 from selenium.webdriver.remote.webdriver import WebDriver

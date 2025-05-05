@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import functools
 import logging
 from typing import Any, Callable

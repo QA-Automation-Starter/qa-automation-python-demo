@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import logging
 from random import randint
 from typing import Callable
@@ -26,8 +30,16 @@ def should_test_unstable_function_2():
 
 
 def should_test_unstable_function_3():
-    def retry_with_assertion(the_function: Callable[[], int], the_assertion: Callable[[int], bool]):
-        def assert_value(the_function: Callable[[], int], the_assertion: Callable[[int], bool]):
+    def retry_with_assertion(
+            the_function: Callable[[],
+                                   int],
+            the_assertion: Callable[[int],
+                                    bool]):
+        def assert_value(
+                the_function: Callable[[],
+                                       int],
+                the_assertion: Callable[[int],
+                                        bool]):
             assert the_assertion(the_function())
 
         Retrying(

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import inspect
 import logging.config
 import sys
@@ -23,7 +27,8 @@ def pytest_html_report_title(report) -> None:  # type: ignore
 
 
 @pytest.hookimpl(tryfirst=True)
-def pytest_runtest_makereport(item: pytest.Item, call: pytest.CallInfo[None]) -> None:
+def pytest_runtest_makereport(
+        item: pytest.Item, call: pytest.CallInfo[None]) -> None:
     # NOTE: this is required in order to have source code added to report even for successful tests
     if call.when == "call":
         item._report_sections.append(  # type: ignore

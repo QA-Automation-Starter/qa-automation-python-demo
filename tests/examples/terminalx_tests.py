@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import random
 from hamcrest import is_  # type: ignore
 from python_selenium.model.examples.terminalx_user import TerminalXUser

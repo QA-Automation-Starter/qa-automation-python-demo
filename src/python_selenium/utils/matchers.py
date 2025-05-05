@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 from datetime import date, datetime
 from typing import (Any, Callable, Iterable, Iterator, List, Optional, Sequence,
                     Union, cast, final, override)

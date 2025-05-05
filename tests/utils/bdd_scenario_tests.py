@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import random
 from datetime import timedelta
 from typing import final
@@ -14,7 +18,10 @@ from python_selenium.testing.generic_steps import *
 
 @logger
 @final
-class BddScenarioTests(AbstractTestsBase[GenericSteps[TerminalXConfiguration], TerminalXConfiguration]):
+class BddScenarioTests(
+    AbstractTestsBase
+    [GenericSteps[TerminalXConfiguration],
+     TerminalXConfiguration]):
     _steps_type = GenericSteps
 
     def should_work(self):
@@ -37,9 +44,8 @@ class BddScenarioTests(AbstractTestsBase[GenericSteps[TerminalXConfiguration], T
 
     def should_retry(self):
         with pytest.raises(tenacity.RetryError):
-            (self.steps
-                .given.nothing
-                .when.retrying(lambda: self.steps.when.failing(TestException("boom"))))
+            (self.steps .given.nothing .when.retrying(
+                lambda: self.steps.when.failing(TestException("boom"))))
 
     def should_repeat(self):
         (self.steps

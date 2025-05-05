@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 from typing import Iterator, Self, final
 from hamcrest.core.matcher import Matcher
 from selenium.webdriver.remote.webdriver import WebDriver

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 from abc import ABC
 from functools import cached_property
 from typing import Any, Type, final
@@ -8,8 +12,9 @@ from python_selenium.utils.logger import LoggerMixin
 from python_selenium.utils.object_utils import ImmutableMixin
 
 
-class AbstractTestsBase[TSteps:GenericSteps[Any], TConfiguration:AbstractConfiguration](
-        ABC, LoggerMixin, ImmutableMixin):
+class AbstractTestsBase[TSteps: GenericSteps[Any],
+                        TConfiguration: AbstractConfiguration](ABC,
+                                                               LoggerMixin, ImmutableMixin):
     """
     Basic test scenario implementation, holding some type of steps and a logger
     facility.

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import attr
 from hamcrest import *
 from python_selenium.utils.tuple_utils import *

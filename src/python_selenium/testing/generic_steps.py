@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import logging
 from datetime import timedelta
 from typing import Any, Callable, Self, final, override
@@ -14,7 +18,9 @@ from python_selenium.testing.bdd_keywords import BddKeywords
 from python_selenium.utils.thread_utils import sleep_for
 
 
-class GenericSteps[TConfiguration:AbstractConfiguration](BddKeywords['GenericSteps'], LoggerMixin):
+class GenericSteps[TConfiguration: AbstractConfiguration](
+        BddKeywords['GenericSteps'],
+        LoggerMixin):
     """
     Generic steps beyond the BDD-keywords and diagnostics methods, most important:
     - retrying, for attempting a step that sporadically fails
@@ -269,7 +275,9 @@ class GenericSteps[TConfiguration:AbstractConfiguration](BddKeywords['GenericSte
 
     @final
     # @traced
-    def eventually_assert_that[T](self, supplier: Supplier[T], by_rule: Matcher[T]) -> Self:
+    def eventually_assert_that[T](
+            self, supplier: Supplier[T],
+            by_rule: Matcher[T]) -> Self:
         '''
         Repeatedly applies specified rule on specified supplier, according to
         _retry_policy.

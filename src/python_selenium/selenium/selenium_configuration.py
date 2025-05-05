@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 from functools import cached_property
 from typing import final
 from python_selenium.testing.abstract_configuration import AbstractConfiguration

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 from enum import Enum
 from typing import Self, final
 from hamcrest import is_  # type: ignore

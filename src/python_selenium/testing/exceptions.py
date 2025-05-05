@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 class TestException(Exception):
     """
     Marks an exception raised by tests infrastructure. Useful to differentiate

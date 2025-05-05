@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 from typing import Any, Generic, TypeVar, override
 
 from python_selenium.rest.rest_configuration import RestConfiguration
@@ -14,7 +18,7 @@ TSteps = TypeVar("TSteps", bound=RestSteps[Any])
 class RestTests(
         Generic[TSteps, TConfiguration],
         AbstractTestsBase[TSteps, TConfiguration]):
-    _rest_session: requests.Session # not thread safe
+    _rest_session: requests.Session  # not thread safe
 
     @override
     def setup_method(self):

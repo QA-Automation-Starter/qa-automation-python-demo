@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Adrian Herscu
+#
+# SPDX-License-Identifier: Apache-2.0
+
 from hamcrest import is_  # type: ignore
 from python_selenium.examples.swagger_petstore_configuration import SwaggerPetstoreConfiguration
 from python_selenium.examples.swagger_petstore_steps import SwaggerPetstoreSteps
