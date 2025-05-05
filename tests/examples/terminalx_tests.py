@@ -15,24 +15,23 @@ class TerminalXTests(SeleniumTests[TerminalXSteps, TerminalXConfiguration]):
     _steps_type = TerminalXSteps
     _configuration = TerminalXConfiguration()
 
-    def login_section(self, user: TerminalXUser):
-        (self.steps
-            .given.configuration(self._configuration)
-            .and_.terminalx(self._web_driver)
-            .when.logging_in_with(user.credentials)
-            .then.the_user_logged_in(is_(user.name)))
+    # NOTE sections may be further collected in superclasses and reused across tests
+    def login_section(self, user: TerminalXUser) -> TerminalXSteps:
+        return (self.steps
+                .given.configuration(self._configuration)
+                .and_.terminalx(self._web_driver)
+                .when.logging_in_with(user.credentials)
+                .then.the_user_logged_in(is_(user.name)))
 
     def should_login(self):
         self.login_section(random.choice(self._configuration.users))
 
     def should_find(self):
-        self.login_section(random.choice(self._configuration.users))
-
-        (self.steps
+        (self.login_section(random.choice(self._configuration.users))
             .when.clicking_search())
 
         for word in ["hello", "kitty"]:
             (self.steps
-                .when.searching_for(word)
-                .then.the_search_hints(yields_item(traced(
-                    contains_string_ignoring_case(word)))))
+             .when.searching_for(word)
+             .then.the_search_hints(yields_item(traced(
+                 contains_string_ignoring_case(word)))))
