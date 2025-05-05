@@ -10,6 +10,24 @@ This is a minimal Python test automation project using **Selenium WebDriver** an
 - ✅ REST API example
 - ✅ GitHub Codespaces-compatible development container
 
+## Architecture
+
+```mermaid
+flowchart TD
+    A[Tests: Define BDD scenarios as series of steps, also define specific setup and tear-down] --> |contains| B[Steps: encapsulate UI or API operations and verifications, and may be composed of other steps]
+    B --> |contains| C[Configurations: can be per environment, such as dev, qa, staging, and contain urls, users, authentication schemes, encryption, etc.]
+    B --> |uses| D[Matchers: Hamcrest matchers for single objects or for iterables]
+    A --> |contains| C
+    B --> |uses| E[Models: domain objects]
+
+    subgraph Inheritance
+        A1[GenericTests] -.-> |inherits| A2[Tests]
+        B1[GenericSteps] -.-> |inherits| B2[Steps]
+        C1[AbstractConfiguration] -.-> |inherits| C2[Configuration]
+    end
+```
+> NOTE: Support for additional technologies, e.g RabbitMQ, can be added by sub-classing these classes and adding specific steps, setup/teardown, and configuration. This allows reusing the basic configuration, reporting, logging, and retrying mechanisms. Further, application tests, steps, and configurations reuse by subclassing from technologies.
+
 ## Project Structure
 
 ```
