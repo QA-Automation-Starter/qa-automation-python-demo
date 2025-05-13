@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from pathlib import Path
-from python_selenium.rest.rest_configuration import RestConfiguration
+from qa_pytest_rest.rest_configuration import RestConfiguration
 
 
 class SwaggerPetstoreConfiguration(RestConfiguration):

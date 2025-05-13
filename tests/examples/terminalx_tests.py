@@ -5,9 +5,9 @@
 import random
 from hamcrest import is_  # type: ignore
 from python_selenium.model.examples.terminalx_user import TerminalXUser
-from python_selenium.selenium.selenium_tests import SeleniumTests
+from qa_pytest_webdriver.selenium_tests import SeleniumTests
 from python_selenium.examples.terminalx_configuration import TerminalXConfiguration
-from python_selenium.utils.matchers import contains_string_ignoring_case, traced, yields_item
+from qa_testing_utils.matchers import contains_string_ignoring_case, traced, yields_item
 from python_selenium.examples.terminalx_steps import TerminalXSteps
 
 

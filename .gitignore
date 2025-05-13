@@ -1,26 +1,44 @@
-# .gitignore
-
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+
+# Python environments
+.venv/
+
+# VSCode settings (optional: keep .vscode/settings.json)
+.vscode/*
+!.vscode/settings.json
+
+# Distribution / packaging
+dist/
+.pdm-build
+.pdm-python
+.python-version
+
+# Installer logs
+
+# Unit test / coverage reports
+.pytest_cache/
+
+# Mypy
+
+# Pyre / Pytype
+
+# Ruff
+
+# Debugging & development
 *.log
 
-# Virtual environment
-.venv/
-env/
-ENV/
-venv/
+# Notebook / IPython
 
-# OS
-.DS_Store
-Thumbs.db
+# JupyterLite / Sphinx / docs
 
-# Selenium downloads
-*.crdownload
+# Cython
 
-# pytest html report
+# Other tools & IDEs
+
+# JetBrains / PyCharm (optional - uncomment to ignore everything)
+#.idea/
+
+# Miscellaneous
+allure-results
 report.html
-
-allure-results/

@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import List, final
 from python_selenium.model.examples.terminalx_credentials import TerminalXCredentials
 from python_selenium.model.examples.terminalx_user import TerminalXUser
-from python_selenium.selenium.selenium_configuration import SeleniumConfiguration
+from qa_pytest_webdriver.selenium_configuration import SeleniumConfiguration
 
 
 class TerminalXConfiguration(SeleniumConfiguration):
