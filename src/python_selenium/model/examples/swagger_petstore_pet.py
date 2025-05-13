@@ -9,7 +9,7 @@ from uuid import uuid4
 
 from requests import Response
 
-from python_selenium.utils.string_utils import to_string
+from qa_testing_utils.string_utils import to_string
 
 
 @dataclass(eq=True, frozen=True)

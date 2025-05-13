@@ -26,37 +26,45 @@ flowchart TD
         C1[AbstractConfiguration] -.-> |inherits| C2[Configuration]
     end
 ```
+
 > NOTE: Support for additional technologies, e.g RabbitMQ, can be added by sub-classing these classes and adding specific steps, setup/teardown, and configuration. This allows reusing the basic configuration, reporting, logging, and retrying mechanisms. Further, application tests, steps, and configurations reuse by subclassing from technologies.
 
 ## Project Structure
 
 ```
 python-selenium/
-├── .devcontainer/       # Development container setup for Codespaces
-├── src/                 # Support code
-├── tests/               # Test cases organized by feature
-│   └── test_example.py  # Contains functional tests
-├── requirements.txt     # Python dependencies
-├── pyproject.toml       # Project metadata
+├── .devcontainer/         # Development container setup for Codespaces
+├── src/                   # Support code
+├── tests/                 # Test cases organized by feature
+│   └── test_example.py    # Contains functional tests
+├── pyproject.toml         # Project metadata and dependencies
 ```
 
-## Quick Start (Locally)
+## Quick Start (Locally with [PDM](https://pdm-project.org))
 
-1. Create a virtual environment:
+> ⚠️ Requires Python 3.13 installed on your system.
+
+1. Install PDM and UV (if not installed):
    ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
+   pipx install pdm[all]
+   pipx install uv
+   pdm config --global use_uv true
    ```
 
 2. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   pdm install
    ```
 
 3. Run the tests:
    ```bash
-   pytest -v
+   pdm run pytest
    ```
+
+4. Clean PDM state:
+    ```bash
+    pdm run clean
+    ```
 
 ## Using in GitHub Codespaces
 
@@ -69,11 +77,10 @@ No setup is needed—just open in Codespaces and start coding.
 > NOTE: Selenium tests will not work here, unless changed to work with
 > SauceLabs, or similar remote browser testing service.
 
-
 ## Reports
 
-1. `report.html` is generated in root-folder, just open it in a Web-browser
-2. `allure-results` -- this requires running the Allure server
+1. `report.html` is generated in the root folder; just open it in a browser
+2. `allure-results/` is generated for Allure reporting (requires Allure server)
 
 ## Example Tests
 
@@ -99,6 +106,7 @@ def should_add(self):
 
 - Python 3.13
 - Google Chrome
+- PDM (Python package manager)
 
 ## TODO
 

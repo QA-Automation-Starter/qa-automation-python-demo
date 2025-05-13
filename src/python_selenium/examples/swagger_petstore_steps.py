@@ -11,9 +11,9 @@ import requests
 
 from python_selenium.examples.swagger_petstore_configuration import SwaggerPetstoreConfiguration
 from python_selenium.model.examples.swagger_petstore_pet import SwaggerPetstorePet
-from python_selenium.rest.rest_steps import HttpMethod, RestSteps
-from python_selenium.utils.logger import traced
-from python_selenium.utils.matchers import adapted_object
+from qa_pytest_rest.rest_steps import HttpMethod, RestSteps
+from qa_testing_utils.logger import traced
+from qa_testing_utils.matchers import adapted_object
 
 
 @final
