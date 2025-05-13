@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = []
 lock_version = "4.5.0"
-content_hash = "sha256:2245b8518f5d12ad11d1ea2c9fef5adab3476ddf1ba12ad15b74618fb0e61286"
+content_hash = "sha256:9c02188e6059e7d3f86b54fc3011ddf9ef82fc7287bed59ea57631338559f091"
 
 [[metadata.targets]]
 requires_python = ">=3.13"
@@ -13,10 +13,10 @@ requires_python = ">=3.13"
 [[package]]
 name = "allure-pytest"
 version = "2.14.2"
-summary = ""
+summary = "Allure pytest integration"
 dependencies = [
-    "allure-python-commons",
-    "pytest",
+    "allure-python-commons==2.14.2",
+    "pytest>=4.5.0",
 ]
 files = [
     {file = "allure_pytest-2.14.2-py3-none-any.whl", hash = "sha256:18f3baa9ebd1b6148223cfa898bacfc2794bb9446221adac1be71deeb26ed79a"},
@@ -26,10 +26,11 @@ files = [
 [[package]]
 name = "allure-python-commons"
 version = "2.14.2"
-summary = ""
+requires_python = ">=3.6"
+summary = "Contains the API for end users as well as helper functions and classes to build Allure adapters for Python test frameworks"
 dependencies = [
-    "attrs",
-    "pluggy",
+    "attrs>=16.0.0",
+    "pluggy>=0.4.0",
 ]
 files = [
     {file = "allure_python_commons-2.14.2-py3-none-any.whl", hash = "sha256:ad50385a4c601ec31c86eed773d8ccfdcc687fecbb6535c9768af3bf03b50a19"},
@@ -39,7 +40,8 @@ files = [
 [[package]]
 name = "attrs"
 version = "25.3.0"
-summary = ""
+requires_python = ">=3.8"
+summary = "Classes Without Boilerplate"
 files = [
     {file = "attrs-25.3.0-py3-none-any.whl", hash = "sha256:427318ce031701fea540783410126f03899a97ffc6f61596ad581ac2e40e3bc3"},
     {file = "attrs-25.3.0.tar.gz", hash = "sha256:75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"},
@@ -48,7 +50,8 @@ files = [
 [[package]]
 name = "certifi"
 version = "2025.4.26"
-summary = ""
+requires_python = ">=3.6"
+summary = "Python package for providing Mozilla's CA Bundle."
 files = [
     {file = "certifi-2025.4.26-py3-none-any.whl", hash = "sha256:30350364dfe371162649852c63336a15c70c6510c2ad5015b21c2345311805f3"},
     {file = "certifi-2025.4.26.tar.gz", hash = "sha256:0a816057ea3cdefcef70270d2c515e4506bbc954f417fa5ade2021213bb8f0c6"},
@@ -57,7 +60,8 @@ files = [
 [[package]]
 name = "cffi"
 version = "1.17.1"
-summary = ""
+requires_python = ">=3.8"
+summary = "Foreign Function Interface for Python calling C code."
 dependencies = [
     "pycparser",
 ]
@@ -70,7 +74,8 @@ files = [
 [[package]]
 name = "charset-normalizer"
 version = "3.4.2"
-summary = ""
+requires_python = ">=3.7"
+summary = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
 files = [
     {file = "charset_normalizer-3.4.2-cp313-cp313-macosx_10_13_universal2.whl", hash = "sha256:926ca93accd5d36ccdabd803392ddc3e03e6d4cd1cf17deff3b989ab8e9dbcf0"},
     {file = "charset_normalizer-3.4.2-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:eba9904b0f38a143592d9fc0e19e2df0fa2e41c3c3745554761c5f6447eedabf"},
@@ -92,7 +97,8 @@ files = [
 [[package]]
 name = "colorama"
 version = "0.4.6"
-summary = ""
+requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
+summary = "Cross-platform colored terminal text."
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
@@ -101,7 +107,43 @@ files = [
 [[package]]
 name = "coverage"
 version = "7.8.0"
-summary = ""
+requires_python = ">=3.9"
+summary = "Code coverage measurement for Python"
+files = [
+    {file = "coverage-7.8.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:5ac46d0c2dd5820ce93943a501ac5f6548ea81594777ca585bf002aa8854cacd"},
+    {file = "coverage-7.8.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:771eb7587a0563ca5bb6f622b9ed7f9d07bd08900f7589b4febff05f469bea00"},
+    {file = "coverage-7.8.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:42421e04069fb2cbcbca5a696c4050b84a43b05392679d4068acbe65449b5c64"},
+    {file = "coverage-7.8.0-cp313-cp313-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:554fec1199d93ab30adaa751db68acec2b41c5602ac944bb19187cb9a41a8067"},
+    {file = "coverage-7.8.0-cp313-cp313-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5aaeb00761f985007b38cf463b1d160a14a22c34eb3f6a39d9ad6fc27cb73008"},
+    {file = "coverage-7.8.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:581a40c7b94921fffd6457ffe532259813fc68eb2bdda60fa8cc343414ce3733"},
+    {file = "coverage-7.8.0-cp313-cp313-musllinux_1_2_i686.whl", hash = "sha256:f319bae0321bc838e205bf9e5bc28f0a3165f30c203b610f17ab5552cff90323"},
+    {file = "coverage-7.8.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:04bfec25a8ef1c5f41f5e7e5c842f6b615599ca8ba8391ec33a9290d9d2db3a3"},
+    {file = "coverage-7.8.0-cp313-cp313-win32.whl", hash = "sha256:dd19608788b50eed889e13a5d71d832edc34fc9dfce606f66e8f9f917eef910d"},
+    {file = "coverage-7.8.0-cp313-cp313-win_amd64.whl", hash = "sha256:a9abbccd778d98e9c7e85038e35e91e67f5b520776781d9a1e2ee9d400869487"},
+    {file = "coverage-7.8.0-cp313-cp313t-macosx_10_13_x86_64.whl", hash = "sha256:18c5ae6d061ad5b3e7eef4363fb27a0576012a7447af48be6c75b88494c6cf25"},
+    {file = "coverage-7.8.0-cp313-cp313t-macosx_11_0_arm64.whl", hash = "sha256:95aa6ae391a22bbbce1b77ddac846c98c5473de0372ba5c463480043a07bff42"},
+    {file = "coverage-7.8.0-cp313-cp313t-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e013b07ba1c748dacc2a80e69a46286ff145935f260eb8c72df7185bf048f502"},
+    {file = "coverage-7.8.0-cp313-cp313t-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:d766a4f0e5aa1ba056ec3496243150698dc0481902e2b8559314368717be82b1"},
+    {file = "coverage-7.8.0-cp313-cp313t-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ad80e6b4a0c3cb6f10f29ae4c60e991f424e6b14219d46f1e7d442b938ee68a4"},
+    {file = "coverage-7.8.0-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "sha256:b87eb6fc9e1bb8f98892a2458781348fa37e6925f35bb6ceb9d4afd54ba36c73"},
+    {file = "coverage-7.8.0-cp313-cp313t-musllinux_1_2_i686.whl", hash = "sha256:d1ba00ae33be84066cfbe7361d4e04dec78445b2b88bdb734d0d1cbab916025a"},
+    {file = "coverage-7.8.0-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:f3c38e4e5ccbdc9198aecc766cedbb134b2d89bf64533973678dfcf07effd883"},
+    {file = "coverage-7.8.0-cp313-cp313t-win32.whl", hash = "sha256:379fe315e206b14e21db5240f89dc0774bdd3e25c3c58c2c733c99eca96f1ada"},
+    {file = "coverage-7.8.0-cp313-cp313t-win_amd64.whl", hash = "sha256:2e4b6b87bb0c846a9315e3ab4be2d52fac905100565f4b92f02c445c8799e257"},
+    {file = "coverage-7.8.0-py3-none-any.whl", hash = "sha256:dbf364b4c5e7bae9250528167dfe40219b62e2d573c854d74be213e1e52069f7"},
+    {file = "coverage-7.8.0.tar.gz", hash = "sha256:7a3d62b3b03b4b6fd41a085f3574874cf946cb4604d2b4d3e8dca8cd570ca501"},
+]
+
+[[package]]
+name = "coverage"
+version = "7.8.0"
+extras = ["toml"]
+requires_python = ">=3.9"
+summary = "Code coverage measurement for Python"
+dependencies = [
+    "coverage==7.8.0",
+    "tomli; python_full_version <= \"3.11.0a6\"",
+]
 files = [
     {file = "coverage-7.8.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:5ac46d0c2dd5820ce93943a501ac5f6548ea81594777ca585bf002aa8854cacd"},
     {file = "coverage-7.8.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:771eb7587a0563ca5bb6f622b9ed7f9d07bd08900f7589b4febff05f469bea00"},
@@ -130,7 +172,8 @@ files = [
 [[package]]
 name = "dill"
 version = "0.4.0"
-summary = ""
+requires_python = ">=3.8"
+summary = "serialize all of Python"
 files = [
     {file = "dill-0.4.0-py3-none-any.whl", hash = "sha256:44f54bf6412c2c8464c14e8243eb163690a9800dbe2c367330883b19c7561049"},
     {file = "dill-0.4.0.tar.gz", hash = "sha256:0633f1d2df477324f53a895b02c901fb961bdbf65a17122586ea7019292cbcf0"},
@@ -139,7 +182,8 @@ files = [
 [[package]]
 name = "h11"
 version = "0.16.0"
-summary = ""
+requires_python = ">=3.8"
+summary = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
 files = [
     {file = "h11-0.16.0-py3-none-any.whl", hash = "sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"},
     {file = "h11-0.16.0.tar.gz", hash = "sha256:4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1"},
@@ -148,7 +192,8 @@ files = [
 [[package]]
 name = "idna"
 version = "3.10"
-summary = ""
+requires_python = ">=3.6"
+summary = "Internationalized Domain Names in Applications (IDNA)"
 files = [
     {file = "idna-3.10-py3-none-any.whl", hash = "sha256:946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3"},
     {file = "idna-3.10.tar.gz", hash = "sha256:12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"},
@@ -157,7 +202,8 @@ files = [
 [[package]]
 name = "iniconfig"
 version = "2.1.0"
-summary = ""
+requires_python = ">=3.8"
+summary = "brain-dead simple config-ini parsing"
 files = [
     {file = "iniconfig-2.1.0-py3-none-any.whl", hash = "sha256:9deba5723312380e77435581c6bf4935c94cbfab9b1ed33ef8d238ea168eb760"},
     {file = "iniconfig-2.1.0.tar.gz", hash = "sha256:3abbd2e30b36733fee78f9c7f7308f2d0050e88f0087fd25c2645f63c773e1c7"},
@@ -166,9 +212,10 @@ files = [
 [[package]]
 name = "jinja2"
 version = "3.1.6"
-summary = ""
+requires_python = ">=3.7"
+summary = "A very fast and expressive template engine."
 dependencies = [
-    "markupsafe",
+    "MarkupSafe>=2.0",
 ]
 files = [
     {file = "jinja2-3.1.6-py3-none-any.whl", hash = "sha256:85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"},
@@ -178,7 +225,8 @@ files = [
 [[package]]
 name = "markupsafe"
 version = "3.0.2"
-summary = ""
+requires_python = ">=3.9"
+summary = "Safely add untrusted strings to HTML/XML markup."
 files = [
     {file = "MarkupSafe-3.0.2-cp313-cp313-macosx_10_13_universal2.whl", hash = "sha256:ba9527cdd4c926ed0760bc301f6728ef34d841f405abf9d4f959c478421e4efd"},
     {file = "MarkupSafe-3.0.2-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:f8b3d067f2e40fe93e1ccdd6b2e1d16c43140e76f02fb1319a05cf2b79d99430"},
@@ -206,7 +254,8 @@ files = [
 [[package]]
 name = "more-itertools"
 version = "10.7.0"
-summary = ""
+requires_python = ">=3.9"
+summary = "More routines for operating on iterables, beyond itertools"
 files = [
     {file = "more_itertools-10.7.0-py3-none-any.whl", hash = "sha256:d43980384673cb07d2f7d2d918c616b30c659c089ee23953f601d6609c67510e"},
     {file = "more_itertools-10.7.0.tar.gz", hash = "sha256:9fddd5403be01a94b204faadcff459ec3568cf110265d3c54323e1e866ad29d3"},
@@ -215,9 +264,10 @@ files = [
 [[package]]
 name = "outcome"
 version = "1.3.0.post0"
-summary = ""
+requires_python = ">=3.7"
+summary = "Capture the outcome of Python function calls."
 dependencies = [
-    "attrs",
+    "attrs>=19.2.0",
 ]
 files = [
     {file = "outcome-1.3.0.post0-py2.py3-none-any.whl", hash = "sha256:e771c5ce06d1415e356078d3bdd68523f284b4ce5419828922b6871e65eda82b"},
@@ -227,7 +277,8 @@ files = [
 [[package]]
 name = "packaging"
 version = "25.0"
-summary = ""
+requires_python = ">=3.8"
+summary = "Core utilities for Python packages"
 files = [
     {file = "packaging-25.0-py3-none-any.whl", hash = "sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484"},
     {file = "packaging-25.0.tar.gz", hash = "sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"},
@@ -236,7 +287,8 @@ files = [
 [[package]]
 name = "pluggy"
 version = "1.5.0"
-summary = ""
+requires_python = ">=3.8"
+summary = "plugin and hook calling mechanisms for python"
 files = [
     {file = "pluggy-1.5.0-py3-none-any.whl", hash = "sha256:44e1ad92c8ca002de6377e165f3e0f1be63266ab4d554740532335b9d75ea669"},
     {file = "pluggy-1.5.0.tar.gz", hash = "sha256:2cffa88e94fdc978c4c574f15f9e59b7f4201d439195c3715ca9e2486f1d0cf1"},
@@ -245,7 +297,7 @@ files = [
 [[package]]
 name = "ppretty"
 version = "1.3"
-summary = ""
+summary = "Convert python objects to a human readable format"
 files = [
     {file = "ppretty-1.3.zip", hash = "sha256:a5fbe17b9ae9efb9a8d76423d84c7c5af7130b08e6c3b28078ec25c244f883e5"},
 ]
@@ -253,7 +305,8 @@ files = [
 [[package]]
 name = "pycparser"
 version = "2.22"
-summary = ""
+requires_python = ">=3.8"
+summary = "C parser in Python"
 files = [
     {file = "pycparser-2.22-py3-none-any.whl", hash = "sha256:c3702b6d3dd8c7abc1afa565d7e63d53a1d0bd86cdc24edd75470f4de499cfcc"},
     {file = "pycparser-2.22.tar.gz", hash = "sha256:491c8be9c040f5390f5bf44a5b07752bd07f56edf992381b05c701439eec10f6"},
@@ -262,10 +315,11 @@ files = [
 [[package]]
 name = "pyfunctional"
 version = "1.5.0"
-summary = ""
+requires_python = ">=3.8.0,<4.0.0"
+summary = "Package for creating data pipelines with chain functional programming"
 dependencies = [
-    "dill",
-    "tabulate",
+    "dill>=0.2.5",
+    "tabulate<=1.0.0",
 ]
 files = [
     {file = "pyfunctional-1.5.0-py3-none-any.whl", hash = "sha256:dfee0f4110f4167801bb12f8d497230793392f694655103b794460daefbebf2b"},
@@ -275,7 +329,8 @@ files = [
 [[package]]
 name = "pyhamcrest"
 version = "2.1.0"
-summary = ""
+requires_python = ">=3.6"
+summary = "Hamcrest framework for matcher objects"
 files = [
     {file = "pyhamcrest-2.1.0-py3-none-any.whl", hash = "sha256:f6913d2f392e30e0375b3ecbd7aee79e5d1faa25d345c8f4ff597665dcac2587"},
     {file = "pyhamcrest-2.1.0.tar.gz", hash = "sha256:c6acbec0923d0cb7e72c22af1926f3e7c97b8e8d69fc7498eabacaf7c975bd9c"},
@@ -284,7 +339,8 @@ files = [
 [[package]]
 name = "pysocks"
 version = "1.7.1"
-summary = ""
+requires_python = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+summary = "A Python SOCKS client module. See https://github.com/Anorov/PySocks for more information."
 files = [
     {file = "PySocks-1.7.1-py3-none-any.whl", hash = "sha256:2725bd0a9925919b9b51739eea5f9e2bae91e83288108a9ad338b2e3a4435ee5"},
     {file = "PySocks-1.7.1.tar.gz", hash = "sha256:3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0"},
@@ -293,12 +349,15 @@ files = [
 [[package]]
 name = "pytest"
 version = "8.3.5"
-summary = ""
+requires_python = ">=3.8"
+summary = "pytest: simple powerful testing with Python"
 dependencies = [
     "colorama; sys_platform == \"win32\"",
+    "exceptiongroup>=1.0.0rc8; python_version < \"3.11\"",
     "iniconfig",
     "packaging",
-    "pluggy",
+    "pluggy<2,>=1.5",
+    "tomli>=1; python_version < \"3.11\"",
 ]
 files = [
     {file = "pytest-8.3.5-py3-none-any.whl", hash = "sha256:c69214aa47deac29fad6c2a4f590b9c4a9fdb16a403176fe154b79c0b4d4d820"},
@@ -308,10 +367,11 @@ files = [
 [[package]]
 name = "pytest-cov"
 version = "6.1.1"
-summary = ""
+requires_python = ">=3.9"
+summary = "Pytest plugin for measuring coverage."
 dependencies = [
-    "coverage",
-    "pytest",
+    "coverage[toml]>=7.5",
+    "pytest>=4.6",
 ]
 files = [
     {file = "pytest_cov-6.1.1-py3-none-any.whl", hash = "sha256:bddf29ed2d0ab6f4df17b4c55b0a657287db8684af9c42ea546b21b1041b3dde"},
@@ -321,11 +381,12 @@ files = [
 [[package]]
 name = "pytest-html"
 version = "4.1.1"
-summary = ""
+requires_python = ">=3.8"
+summary = "pytest plugin for generating HTML reports"
 dependencies = [
-    "jinja2",
-    "pytest",
-    "pytest-metadata",
+    "jinja2>=3.0.0",
+    "pytest-metadata>=2.0.0",
+    "pytest>=7.0.0",
 ]
 files = [
     {file = "pytest_html-4.1.1-py3-none-any.whl", hash = "sha256:c8152cea03bd4e9bee6d525573b67bbc6622967b72b9628dda0ea3e2a0b5dd71"},
@@ -335,9 +396,10 @@ files = [
 [[package]]
 name = "pytest-metadata"
 version = "3.1.1"
-summary = ""
+requires_python = ">=3.8"
+summary = "pytest plugin for test session metadata"
 dependencies = [
-    "pytest",
+    "pytest>=7.0.0",
 ]
 files = [
     {file = "pytest_metadata-3.1.1-py3-none-any.whl", hash = "sha256:c8e0844db684ee1c798cfa38908d20d67d0463ecb6137c72e91f418558dd5f4b"},
@@ -347,7 +409,8 @@ files = [
 [[package]]
 name = "python-dotenv"
 version = "1.1.0"
-summary = ""
+requires_python = ">=3.9"
+summary = "Read key-value pairs from a .env file and set them as environment variables"
 files = [
     {file = "python_dotenv-1.1.0-py3-none-any.whl", hash = "sha256:d7c01d9e2293916c18baf562d95698754b0dbbb5e74d457c45d4f6561fb9d55d"},
     {file = "python_dotenv-1.1.0.tar.gz", hash = "sha256:41f90bc6f5f177fb41f53e87666db362025010eb28f60a01c9143bfa33a2b2d5"},
@@ -355,90 +418,96 @@ files = [
 
 [[package]]
 name = "qa-pytest-commons"
-version = "0.0.5"
+version = "0.0.6"
+requires_python = ">=3.13"
 summary = ""
 dependencies = [
-    "allure-pytest",
-    "more-itertools",
-    "ppretty",
-    "pyfunctional",
-    "pyhamcrest",
-    "pytest",
+    "PyHamcrest==2.1.0",
+    "allure-pytest==2.14.2",
+    "more-itertools==10.7.0",
+    "ppretty==1.3",
+    "pyfunctional==1.5.0",
+    "pytest==8.3.5",
     "qa-testing-utils",
-    "returns",
-    "tenacity",
+    "returns==0.25.0",
+    "tenacity==9.1.2",
 ]
 files = [
-    {file = "qa_pytest_commons-0.0.5-py3-none-any.whl", hash = "sha256:5c6cee4f11a65b7335e5a27352be62c394a8bcc88ddfeb50d0f8e28a7460af8c"},
-    {file = "qa_pytest_commons-0.0.5.tar.gz", hash = "sha256:7dfb9d4692d1d318b4c47eaa46602e50c8bcb071ef168fab5269d4eaaff7709e"},
+    {file = "qa_pytest_commons-0.0.6-py3-none-any.whl", hash = "sha256:a560ae6b13e0caf430782a08a4b9fc498cbfb97e1a838a7ec34e02c68c6e7229"},
+    {file = "qa_pytest_commons-0.0.6.tar.gz", hash = "sha256:c0a732be209e8e223917b6b1d784136b934bcd5562b70951d1450f4abf87024c"},
 ]
 
 [[package]]
 name = "qa-pytest-rest"
-version = "0.0.5"
+version = "0.0.6"
+requires_python = ">=3.13"
 summary = ""
 dependencies = [
-    "more-itertools",
-    "pyfunctional",
-    "pyhamcrest",
-    "pytest",
+    "PyHamcrest==2.1.0",
+    "more-itertools==10.7.0",
+    "pyfunctional==1.5.0",
+    "pytest==8.3.5",
     "qa-pytest-commons",
     "qa-testing-utils",
-    "returns",
-    "tenacity",
+    "returns==0.25.0",
+    "tenacity==9.1.2",
 ]
 files = [
-    {file = "qa_pytest_rest-0.0.5-py3-none-any.whl", hash = "sha256:9fb21921f66f8d9f74add72c1e57729c636e19e8558cdc105b7cca995dc7dbf8"},
-    {file = "qa_pytest_rest-0.0.5.tar.gz", hash = "sha256:5e8608eb3c35710a014e9d154b90bb5b7f08a3b7682c77e73aaceec051e67a77"},
+    {file = "qa_pytest_rest-0.0.6-py3-none-any.whl", hash = "sha256:2f935f532e16ab81456f875eee3e649d06e212768df6a4c2f3cb8db8e4f4b8f3"},
+    {file = "qa_pytest_rest-0.0.6.tar.gz", hash = "sha256:1720172310c6f8399b74fbd70d6ec15ec1bf8ca6ab3d10ee8e758dcb4bd63449"},
 ]
 
 [[package]]
 name = "qa-pytest-webdriver"
-version = "0.0.5"
-summary = ""
+version = "0.0.6"
+requires_python = ">=3.13"
+summary = "PyTest WebDriver library"
 dependencies = [
-    "more-itertools",
-    "pyfunctional",
-    "pyhamcrest",
-    "pytest",
+    "PyHamcrest==2.1.0",
+    "more-itertools==10.7.0",
+    "pyfunctional==1.5.0",
+    "pytest==8.3.5",
     "qa-pytest-commons",
     "qa-testing-utils",
-    "returns",
-    "selenium",
-    "tenacity",
-    "webdriver-manager",
+    "returns==0.25.0",
+    "selenium==4.32.0",
+    "tenacity==9.1.2",
+    "webdriver-manager==4.0.2",
 ]
 files = [
-    {file = "qa_pytest_webdriver-0.0.5-py3-none-any.whl", hash = "sha256:b540d1bab1e84ea10d2fef6e376af663d425339f771ca0312a9509504d08166a"},
-    {file = "qa_pytest_webdriver-0.0.5.tar.gz", hash = "sha256:c3c3a2408043b3787763621662edf94ee773607ac85be57f329ac26e393cefd4"},
+    {file = "qa_pytest_webdriver-0.0.6-py3-none-any.whl", hash = "sha256:b26d32ed6155ba3dd9e8d8c9d055cc57578e6041159551df0a522c174c7245cc"},
+    {file = "qa_pytest_webdriver-0.0.6.tar.gz", hash = "sha256:254162ac0e383ee8edd159cc4506f845578d28b3c120c9ded681a593d8d5e7d8"},
 ]
 
 [[package]]
 name = "qa-testing-utils"
-version = "0.0.5"
-summary = ""
+version = "0.0.6"
+requires_python = ">=3.13"
+summary = "QA testing utilities"
 dependencies = [
-    "allure-pytest",
-    "more-itertools",
-    "ppretty",
-    "pyfunctional",
-    "pyhamcrest",
-    "returns",
+    "PyHamcrest==2.1.0",
+    "allure-pytest==2.14.2",
+    "more-itertools==10.7.0",
+    "ppretty==1.3",
+    "pyfunctional==1.5.0",
+    "pytest==8.3.5",
+    "returns==0.25.0",
 ]
 files = [
-    {file = "qa_testing_utils-0.0.5-py3-none-any.whl", hash = "sha256:87aa090686de0c513c3240e7a6978d28799ecbf506fc2c1dc0a857063e72909c"},
-    {file = "qa_testing_utils-0.0.5.tar.gz", hash = "sha256:73d704a5fa879c6dddbddd34dac673433bdfae22fd620b6b70b0e1ef3159cda8"},
+    {file = "qa_testing_utils-0.0.6-py3-none-any.whl", hash = "sha256:ed07d352d5a58b6b0f1c80baf58595c7c75143087e54f06e8a9ab3c8ad954312"},
+    {file = "qa_testing_utils-0.0.6.tar.gz", hash = "sha256:2cfb3aed1089e87e1ae72c806a23dbb21c0271c5d91d40af2af954d6e0bdfc5d"},
 ]
 
 [[package]]
 name = "requests"
 version = "2.32.3"
-summary = ""
+requires_python = ">=3.8"
+summary = "Python HTTP for Humans."
 dependencies = [
-    "certifi",
-    "charset-normalizer",
-    "idna",
-    "urllib3",
+    "certifi>=2017.4.17",
+    "charset-normalizer<4,>=2",
+    "idna<4,>=2.5",
+    "urllib3<3,>=1.21.1",
 ]
 files = [
     {file = "requests-2.32.3-py3-none-any.whl", hash = "sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6"},
@@ -448,9 +517,10 @@ files = [
 [[package]]
 name = "returns"
 version = "0.25.0"
-summary = ""
+requires_python = ">=3.10,<4.0"
+summary = "Make your functions return something meaningful, typed, and safe!"
 dependencies = [
-    "typing-extensions",
+    "typing-extensions<5.0,>=4.0",
 ]
 files = [
     {file = "returns-0.25.0-py3-none-any.whl", hash = "sha256:bdc6ec52d28e74d6965f6de5a3af5e39427e67266014b605865fe2e194a75ed0"},
@@ -460,14 +530,15 @@ files = [
 [[package]]
 name = "selenium"
 version = "4.32.0"
-summary = ""
+requires_python = ">=3.9"
+summary = "Official Python bindings for Selenium WebDriver"
 dependencies = [
-    "certifi",
-    "trio",
-    "trio-websocket",
-    "typing-extensions",
-    "urllib3",
-    "websocket-client",
+    "certifi>=2021.10.8",
+    "trio-websocket~=0.9",
+    "trio~=0.17",
+    "typing-extensions~=4.9",
+    "urllib3[socks]<3,>=1.26",
+    "websocket-client~=1.8",
 ]
 files = [
     {file = "selenium-4.32.0-py3-none-any.whl", hash = "sha256:c4d9613f8a45693d61530c9660560fadb52db7d730237bc788ddedf442391f97"},
@@ -477,7 +548,8 @@ files = [
 [[package]]
 name = "sniffio"
 version = "1.3.1"
-summary = ""
+requires_python = ">=3.7"
+summary = "Sniff out which async library your code is running under"
 files = [
     {file = "sniffio-1.3.1-py3-none-any.whl", hash = "sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2"},
     {file = "sniffio-1.3.1.tar.gz", hash = "sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc"},
@@ -486,7 +558,7 @@ files = [
 [[package]]
 name = "sortedcontainers"
 version = "2.4.0"
-summary = ""
+summary = "Sorted Containers -- Sorted List, Sorted Dict, Sorted Set"
 files = [
     {file = "sortedcontainers-2.4.0-py2.py3-none-any.whl", hash = "sha256:a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0"},
     {file = "sortedcontainers-2.4.0.tar.gz", hash = "sha256:25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88"},
@@ -495,7 +567,8 @@ files = [
 [[package]]
 name = "tabulate"
 version = "0.9.0"
-summary = ""
+requires_python = ">=3.7"
+summary = "Pretty-print tabular data"
 files = [
     {file = "tabulate-0.9.0-py3-none-any.whl", hash = "sha256:024ca478df22e9340661486f85298cff5f6dcdba14f3813e8830015b9ed1948f"},
     {file = "tabulate-0.9.0.tar.gz", hash = "sha256:0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"},
@@ -504,7 +577,8 @@ files = [
 [[package]]
 name = "tenacity"
 version = "9.1.2"
-summary = ""
+requires_python = ">=3.9"
+summary = "Retry code until it succeeds"
 files = [
     {file = "tenacity-9.1.2-py3-none-any.whl", hash = "sha256:f77bf36710d8b73a50b2dd155c97b870017ad21afe6ab300326b0371b3b05138"},
     {file = "tenacity-9.1.2.tar.gz", hash = "sha256:1169d376c297e7de388d18b4481760d478b0e99a777cad3a9c86e556f4b697cb"},
@@ -513,13 +587,15 @@ files = [
 [[package]]
 name = "trio"
 version = "0.30.0"
-summary = ""
+requires_python = ">=3.9"
+summary = "A friendly Python library for async concurrency and I/O"
 dependencies = [
-    "attrs",
-    "cffi; implementation_name != \"pypy\" and os_name == \"nt\"",
+    "attrs>=23.2.0",
+    "cffi>=1.14; os_name == \"nt\" and implementation_name != \"pypy\"",
+    "exceptiongroup; python_version < \"3.11\"",
     "idna",
     "outcome",
-    "sniffio",
+    "sniffio>=1.3.0",
     "sortedcontainers",
 ]
 files = [
@@ -530,11 +606,13 @@ files = [
 [[package]]
 name = "trio-websocket"
 version = "0.12.2"
-summary = ""
+requires_python = ">=3.8"
+summary = "WebSocket library for Trio"
 dependencies = [
-    "outcome",
-    "trio",
-    "wsproto",
+    "exceptiongroup; python_version < \"3.11\"",
+    "outcome>=1.2.0",
+    "trio>=0.11",
+    "wsproto>=0.14",
 ]
 files = [
     {file = "trio_websocket-0.12.2-py3-none-any.whl", hash = "sha256:df605665f1db533f4a386c94525870851096a223adcb97f72a07e8b4beba45b6"},
@@ -544,7 +622,8 @@ files = [
 [[package]]
 name = "typing-extensions"
 version = "4.13.2"
-summary = ""
+requires_python = ">=3.8"
+summary = "Backported and Experimental Type Hints for Python 3.8+"
 files = [
     {file = "typing_extensions-4.13.2-py3-none-any.whl", hash = "sha256:a439e7c04b49fec3e5d3e2beaa21755cadbbdc391694e28ccdd36ca4a1408f8c"},
     {file = "typing_extensions-4.13.2.tar.gz", hash = "sha256:e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"},
@@ -553,7 +632,8 @@ files = [
 [[package]]
 name = "urllib3"
 version = "2.4.0"
-summary = ""
+requires_python = ">=3.9"
+summary = "HTTP library with thread-safe connection pooling, file post, and more."
 files = [
     {file = "urllib3-2.4.0-py3-none-any.whl", hash = "sha256:4e16665048960a0900c702d4a66415956a584919c03361cac9f1df5c5dd7e813"},
     {file = "urllib3-2.4.0.tar.gz", hash = "sha256:414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"},
@@ -563,9 +643,10 @@ files = [
 name = "urllib3"
 version = "2.4.0"
 extras = ["socks"]
-summary = ""
+requires_python = ">=3.9"
+summary = "HTTP library with thread-safe connection pooling, file post, and more."
 dependencies = [
-    "pysocks",
+    "pysocks!=1.5.7,<2.0,>=1.5.6",
     "urllib3==2.4.0",
 ]
 files = [
@@ -576,7 +657,8 @@ files = [
 [[package]]
 name = "webdriver-manager"
 version = "4.0.2"
-summary = ""
+requires_python = ">=3.7"
+summary = "Library provides the way to automatically manage drivers for different browsers"
 dependencies = [
     "packaging",
     "python-dotenv",
@@ -590,7 +672,8 @@ files = [
 [[package]]
 name = "websocket-client"
 version = "1.8.0"
-summary = ""
+requires_python = ">=3.8"
+summary = "WebSocket client for Python with low level API options"
 files = [
     {file = "websocket_client-1.8.0-py3-none-any.whl", hash = "sha256:17b44cc997f5c498e809b22cdf2d9c7a9e71c02c8cc2b6c56e7c2d1239bfa526"},
     {file = "websocket_client-1.8.0.tar.gz", hash = "sha256:3239df9f44da632f96012472805d40a23281a991027ce11d2f45a6f24ac4c3da"},
@@ -599,9 +682,10 @@ files = [
 [[package]]
 name = "wsproto"
 version = "1.2.0"
-summary = ""
+requires_python = ">=3.7.0"
+summary = "WebSockets state-machine based protocol implementation"
 dependencies = [
-    "h11",
+    "h11<1,>=0.9.0",
 ]
 files = [
     {file = "wsproto-1.2.0-py3-none-any.whl", hash = "sha256:b9acddd652b585d75b20477888c56642fdade28bdfd3579aa24a4d2c037dd736"},
