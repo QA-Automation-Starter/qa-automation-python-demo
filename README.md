@@ -2,6 +2,8 @@
 
 This is a minimal Python test automation project using **Selenium WebDriver** and **pytest**, structured to demonstrate clean, readable test code with a focus on search functionality and API-driven operations.
 
+[Pytest Automation Architect on ChatGPT](https://chatgpt.com/g/g-6818da8e3db48191852008fd6bef3ec2-pytest-automation-architect)
+
 ## Features
 
 - ✅ Easy-to-read step-based test structure
