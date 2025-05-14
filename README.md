@@ -44,11 +44,9 @@ python-selenium/
 
 > ⚠️ Requires Python 3.13 installed on your system.
 
-1. Install PDM and UV (if not installed):
+1. Install PDM:
    ```bash
    pipx install pdm[all]
-   pipx install uv
-   pdm config --global use_uv true
    ```
 
 2. Install dependencies:
