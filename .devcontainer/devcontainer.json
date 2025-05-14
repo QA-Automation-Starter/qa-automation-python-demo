@@ -1,10 +1,10 @@
 {
-  "name": "python-selenium",
+  "name": "qa-automation-python-demo",
   "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  "postCreateCommand": "python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt",
+  "postCreateCommand": "pipx install pdm && pdm install",
   "customizations": {
     "vscode": {
       "settings": {
