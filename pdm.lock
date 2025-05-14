@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = []
 lock_version = "4.5.0"
-content_hash = "sha256:9c02188e6059e7d3f86b54fc3011ddf9ef82fc7287bed59ea57631338559f091"
+content_hash = "sha256:1772d48093e625df9876b584a3bdab7bff8bebcdbf494da5eb09264ea3db90e1"
 
 [[metadata.targets]]
 requires_python = ">=3.13"
@@ -418,7 +418,7 @@ files = [
 
 [[package]]
 name = "qa-pytest-commons"
-version = "0.0.6"
+version = "0.0.7"
 requires_python = ">=3.13"
 summary = ""
 dependencies = [
@@ -433,13 +433,13 @@ dependencies = [
     "tenacity==9.1.2",
 ]
 files = [
-    {file = "qa_pytest_commons-0.0.6-py3-none-any.whl", hash = "sha256:a560ae6b13e0caf430782a08a4b9fc498cbfb97e1a838a7ec34e02c68c6e7229"},
-    {file = "qa_pytest_commons-0.0.6.tar.gz", hash = "sha256:c0a732be209e8e223917b6b1d784136b934bcd5562b70951d1450f4abf87024c"},
+    {file = "qa_pytest_commons-0.0.7-py3-none-any.whl", hash = "sha256:1d6b78d410a45d2189cfcf374b594c9f75147e49e49db9bc5d46339f65949a6d"},
+    {file = "qa_pytest_commons-0.0.7.tar.gz", hash = "sha256:a1e2bf5bd214df28183067b9fe373084bbb17f2f0be1fe57862c4e0d7318f2ca"},
 ]
 
 [[package]]
 name = "qa-pytest-rest"
-version = "0.0.6"
+version = "0.0.7"
 requires_python = ">=3.13"
 summary = ""
 dependencies = [
@@ -453,13 +453,13 @@ dependencies = [
     "tenacity==9.1.2",
 ]
 files = [
-    {file = "qa_pytest_rest-0.0.6-py3-none-any.whl", hash = "sha256:2f935f532e16ab81456f875eee3e649d06e212768df6a4c2f3cb8db8e4f4b8f3"},
-    {file = "qa_pytest_rest-0.0.6.tar.gz", hash = "sha256:1720172310c6f8399b74fbd70d6ec15ec1bf8ca6ab3d10ee8e758dcb4bd63449"},
+    {file = "qa_pytest_rest-0.0.7-py3-none-any.whl", hash = "sha256:1a6fda43ba271fa6e325c3412a27844e4f0375e7382f46eeb9f7bfb78cb883b5"},
+    {file = "qa_pytest_rest-0.0.7.tar.gz", hash = "sha256:39b77a43234cee9d8b5c9383ccb4b6c039b4c32d3592e70ed3a44492f153e362"},
 ]
 
 [[package]]
 name = "qa-pytest-webdriver"
-version = "0.0.6"
+version = "0.0.7"
 requires_python = ">=3.13"
 summary = "PyTest WebDriver library"
 dependencies = [
@@ -475,13 +475,13 @@ dependencies = [
     "webdriver-manager==4.0.2",
 ]
 files = [
-    {file = "qa_pytest_webdriver-0.0.6-py3-none-any.whl", hash = "sha256:b26d32ed6155ba3dd9e8d8c9d055cc57578e6041159551df0a522c174c7245cc"},
-    {file = "qa_pytest_webdriver-0.0.6.tar.gz", hash = "sha256:254162ac0e383ee8edd159cc4506f845578d28b3c120c9ded681a593d8d5e7d8"},
+    {file = "qa_pytest_webdriver-0.0.7-py3-none-any.whl", hash = "sha256:279619997fa0ef050701017888fdb8e5d85d0c6a20178f0a30f0e35347b34a70"},
+    {file = "qa_pytest_webdriver-0.0.7.tar.gz", hash = "sha256:94d703000c7432a4d2d25d57807736c657d03a919c51162783d2ab8606abc641"},
 ]
 
 [[package]]
 name = "qa-testing-utils"
-version = "0.0.6"
+version = "0.0.7"
 requires_python = ">=3.13"
 summary = "QA testing utilities"
 dependencies = [
@@ -494,8 +494,8 @@ dependencies = [
     "returns==0.25.0",
 ]
 files = [
-    {file = "qa_testing_utils-0.0.6-py3-none-any.whl", hash = "sha256:ed07d352d5a58b6b0f1c80baf58595c7c75143087e54f06e8a9ab3c8ad954312"},
-    {file = "qa_testing_utils-0.0.6.tar.gz", hash = "sha256:2cfb3aed1089e87e1ae72c806a23dbb21c0271c5d91d40af2af954d6e0bdfc5d"},
+    {file = "qa_testing_utils-0.0.7-py3-none-any.whl", hash = "sha256:f49d7019d48de8df649c296dbe556b5bd1d566d394d6f900cdd456f16c689b6d"},
+    {file = "qa_testing_utils-0.0.7.tar.gz", hash = "sha256:aa957f8cbafecce73956c353e8fbb9a78d81364d6b60034846b1d64f52518a0c"},
 ]
 
 [[package]]
