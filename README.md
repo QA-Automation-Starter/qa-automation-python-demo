@@ -1,6 +1,17 @@
 # Python Selenium Example Project
 
-This is a minimal Python test automation project using **Selenium WebDriver** and **pytest**, structured to demonstrate clean, readable test code with a focus on search functionality and API-driven operations.
+This is a minimal Python test automation project using **Selenium WebDriver**, **REST** and **pytest**, structured to demonstrate clean, readable test code with a focus on search functionality and API-driven operations.
+
+## Quick Start 
+This repository is fully configured to run in **GitHub Codespaces**:
+- Python 3.13
+- GitHub CLI
+
+No setup is needed—just open in Codespaces and you will everything installed, then open the Tests panel and run a test.
+
+> NOTE: Selenium tests will not work here, unless changed to work with
+> SauceLabs, or similar remote browser testing service.
+
 
 ## Features
 
@@ -33,47 +44,11 @@ flowchart TD
 
 ```
 python-selenium/
-├── .devcontainer/         # Development container setup for Codespaces
 ├── src/                   # Support code
 ├── tests/                 # Test cases organized by feature
 │   └── test_example.py    # Contains functional tests
 ├── pyproject.toml         # Project metadata and dependencies
 ```
-
-## Quick Start (Locally with [PDM](https://pdm-project.org))
-
-> ⚠️ Requires Python 3.13 installed on your system.
-
-1. Install PDM:
-   ```bash
-   pipx install pdm[all]
-   ```
-
-2. Install dependencies:
-   ```bash
-   pdm install
-   ```
-
-3. Run the tests:
-   ```bash
-   pdm run pytest
-   ```
-
-4. Clean PDM state:
-    ```bash
-    pdm run clean
-    ```
-
-## Using in GitHub Codespaces
-
-This repository is fully configured to run in **GitHub Codespaces**:
-- Python 3.13
-- GitHub CLI
-
-No setup is needed—just open in Codespaces and start coding.
-
-> NOTE: Selenium tests will not work here, unless changed to work with
-> SauceLabs, or similar remote browser testing service.
 
 ## Reports
 
