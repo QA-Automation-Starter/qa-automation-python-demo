@@ -13,6 +13,8 @@ No setup is needed—just open in Codespaces and you will everything installed, 
 > SauceLabs, or similar remote browser testing service.
 
 
+[Pytest Automation Architect on ChatGPT](https://chatgpt.com/g/g-6818da8e3db48191852008fd6bef3ec2-pytest-automation-architect)
+
 ## Features
 
 - ✅ Easy-to-read step-based test structure
