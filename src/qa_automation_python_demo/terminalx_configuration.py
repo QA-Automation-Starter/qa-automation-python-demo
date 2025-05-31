@@ -2,18 +2,13 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-from pathlib import Path
 from typing import List, final
-from python_selenium.model.examples.terminalx_credentials import TerminalXCredentials
-from python_selenium.model.examples.terminalx_user import TerminalXUser
+from qa_automation_python_demo.model.examples.terminalx_credentials import TerminalXCredentials
+from qa_automation_python_demo.model.examples.terminalx_user import TerminalXUser
 from qa_pytest_webdriver.selenium_configuration import SeleniumConfiguration
 
 
 class TerminalXConfiguration(SeleniumConfiguration):
-
-    def __init__(
-            self, path: Path = Path("resources/terminalx-default-config.ini")):
-        super().__init__(path)
 
     @property
     @final

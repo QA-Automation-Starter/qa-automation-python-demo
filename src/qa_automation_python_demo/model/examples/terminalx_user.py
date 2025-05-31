@@ -4,7 +4,7 @@
 
 from dataclasses import dataclass
 
-from python_selenium.model.examples.terminalx_credentials import TerminalXCredentials
+from qa_automation_python_demo.model.examples.terminalx_credentials import TerminalXCredentials
 
 
 @dataclass(frozen=True)

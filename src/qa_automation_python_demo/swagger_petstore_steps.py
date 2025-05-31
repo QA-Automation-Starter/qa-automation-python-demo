@@ -9,8 +9,8 @@ from requests import Request
 from hamcrest.core.matcher import Matcher
 import requests
 
-from python_selenium.examples.swagger_petstore_configuration import SwaggerPetstoreConfiguration
-from python_selenium.model.examples.swagger_petstore_pet import SwaggerPetstorePet
+from qa_automation_python_demo.swagger_petstore_configuration import SwaggerPetstoreConfiguration
+from qa_automation_python_demo.model.examples.swagger_petstore_pet import SwaggerPetstorePet
 from qa_pytest_rest.rest_steps import HttpMethod, RestSteps
 from qa_testing_utils.logger import traced
 from qa_testing_utils.matchers import adapted_object
@@ -27,7 +27,7 @@ class SwaggerPetstoreSteps(RestSteps[SwaggerPetstoreConfiguration]):
     def adding(self, pet: SwaggerPetstorePet) -> Self:
         return self.invoking(Request(
             method=HttpMethod.POST,
-            url=self.configured.endpoint_url(path="pet"),
+            url=self.configured.resource_uri(path="pet"),
             json=asdict(pet)
         ))
 
@@ -36,7 +36,7 @@ class SwaggerPetstoreSteps(RestSteps[SwaggerPetstoreConfiguration]):
                            [Iterator[SwaggerPetstorePet]]) -> Self:
         return self.the_invocation(Request(
             method=HttpMethod.GET,
-            url=self.configured.endpoint_url(path="pet/findByStatus"),
+            url=self.configured.resource_uri(path="pet/findByStatus"),
             params={"status": "available"}),
             adapted_object(
                 lambda response: SwaggerPetstorePet.from_(response),

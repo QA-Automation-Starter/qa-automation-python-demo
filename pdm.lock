@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = []
 lock_version = "4.5.0"
-content_hash = "sha256:bffa16f7c99b95d4f8f4781ce35cfec4b77d9a442afc47ccace6194ae0408496"
+content_hash = "sha256:8d997c3319f8bba71f34844ae1ba6bbca87a659e6e0961893a2d4b9026e1149a"
 
 [[metadata.targets]]
 requires_python = ">=3.13"
@@ -418,7 +418,7 @@ files = [
 
 [[package]]
 name = "qa-pytest-commons"
-version = "0.0.8"
+version = "0.0.9"
 requires_python = ">=3.13"
 summary = ""
 dependencies = [
@@ -433,13 +433,13 @@ dependencies = [
     "tenacity==9.1.2",
 ]
 files = [
-    {file = "qa_pytest_commons-0.0.8-py3-none-any.whl", hash = "sha256:0481cc1252b8eb2bb92487ff3b8f73fa83884d5c178c0a479535fcf77b8d7b05"},
-    {file = "qa_pytest_commons-0.0.8.tar.gz", hash = "sha256:c9ad38c8ae38ba9c458aba00a96dcf44a3336a93ddb1cc81d4c67307c83ac94a"},
+    {file = "qa_pytest_commons-0.0.9-py3-none-any.whl", hash = "sha256:3deeff45bc6d37812c147b24a0ab297fc77c4c379c7ba6280d8a4db6a6166d84"},
+    {file = "qa_pytest_commons-0.0.9.tar.gz", hash = "sha256:455410f7f2798009a2af5324a6d985cf63d3e15588ec9de375987ce14c40e237"},
 ]
 
 [[package]]
 name = "qa-pytest-rest"
-version = "0.0.8"
+version = "0.0.9"
 requires_python = ">=3.13"
 summary = ""
 dependencies = [
@@ -454,13 +454,13 @@ dependencies = [
     "tenacity==9.1.2",
 ]
 files = [
-    {file = "qa_pytest_rest-0.0.8-py3-none-any.whl", hash = "sha256:4175823e399427150b64d976e0bacb0f026a697b15ad3a31c0cc40bcd967ab50"},
-    {file = "qa_pytest_rest-0.0.8.tar.gz", hash = "sha256:51eae927f16aeeb031c24545dbe9eb0adb1c1262441d6f4d6b0ced863e5e1b9b"},
+    {file = "qa_pytest_rest-0.0.9-py3-none-any.whl", hash = "sha256:a13fab0146db4a9e6fac537fa07f1c4a617d9d017254c504f9fab32ee014e953"},
+    {file = "qa_pytest_rest-0.0.9.tar.gz", hash = "sha256:604c72d2fe450bf7dde009e177dcd2041fd6cfcb665218cbaf8566f4b0ce8030"},
 ]
 
 [[package]]
 name = "qa-pytest-webdriver"
-version = "0.0.8"
+version = "0.0.9"
 requires_python = ">=3.13"
 summary = "PyTest WebDriver library"
 dependencies = [
@@ -471,18 +471,18 @@ dependencies = [
     "qa-pytest-commons",
     "qa-testing-utils",
     "returns==0.25.0",
-    "selenium==4.32.0",
+    "selenium==4.33.0",
     "tenacity==9.1.2",
     "webdriver-manager==4.0.2",
 ]
 files = [
-    {file = "qa_pytest_webdriver-0.0.8-py3-none-any.whl", hash = "sha256:452da205991a2105db32824b665763b870fa0bebfd5842feebf82d665c821dbc"},
-    {file = "qa_pytest_webdriver-0.0.8.tar.gz", hash = "sha256:e98ee5a03b49a21e95d2f3cd3b0d7c68c578e49458753687a9aab6a7feb06798"},
+    {file = "qa_pytest_webdriver-0.0.9-py3-none-any.whl", hash = "sha256:e376b20c4c5497c717c37d6b5ad1c7579ab1633abb20641b289d4925726937fe"},
+    {file = "qa_pytest_webdriver-0.0.9.tar.gz", hash = "sha256:3674c784506ecf1067e96f4b11846317efbdb07871eaf5e4f95349542b7fe34e"},
 ]
 
 [[package]]
 name = "qa-testing-utils"
-version = "0.0.8"
+version = "0.0.9"
 requires_python = ">=3.13"
 summary = "QA testing utilities"
 dependencies = [
@@ -495,8 +495,8 @@ dependencies = [
     "returns==0.25.0",
 ]
 files = [
-    {file = "qa_testing_utils-0.0.8-py3-none-any.whl", hash = "sha256:51bd7cb2ea05b7b9226cec757bc4befdff66d0251caf7ccd19c4c3da59cf319e"},
-    {file = "qa_testing_utils-0.0.8.tar.gz", hash = "sha256:1fc5015155c95faf70452f1914dc6e520cc7c07e31fcd7b0d8addea0fd804461"},
+    {file = "qa_testing_utils-0.0.9-py3-none-any.whl", hash = "sha256:17a36179ba6e0fc15657524cb968df5f700df46b1799e2f4cf6975e089d61176"},
+    {file = "qa_testing_utils-0.0.9.tar.gz", hash = "sha256:2fd6ecfd7547a7b47104cf289c9783b1a9e5fd852f221230fa8ec22a61e609fa"},
 ]
 
 [[package]]
@@ -530,20 +530,20 @@ files = [
 
 [[package]]
 name = "selenium"
-version = "4.32.0"
+version = "4.33.0"
 requires_python = ">=3.9"
 summary = "Official Python bindings for Selenium WebDriver"
 dependencies = [
-    "certifi>=2021.10.8",
-    "trio-websocket~=0.9",
-    "trio~=0.17",
-    "typing-extensions~=4.9",
-    "urllib3[socks]<3,>=1.26",
-    "websocket-client~=1.8",
+    "certifi>=2025.4.26",
+    "trio-websocket~=0.12.2",
+    "trio~=0.30.0",
+    "typing-extensions~=4.13.2",
+    "urllib3[socks]~=2.4.0",
+    "websocket-client~=1.8.0",
 ]
 files = [
-    {file = "selenium-4.32.0-py3-none-any.whl", hash = "sha256:c4d9613f8a45693d61530c9660560fadb52db7d730237bc788ddedf442391f97"},
-    {file = "selenium-4.32.0.tar.gz", hash = "sha256:b9509bef4056f4083772abb1ae19ff57247d617a29255384b26be6956615b206"},
+    {file = "selenium-4.33.0-py3-none-any.whl", hash = "sha256:af9ea757813918bddfe05cc677bf63c8a0cd277ebf8474b3dd79caa5727fca85"},
+    {file = "selenium-4.33.0.tar.gz", hash = "sha256:d90974db95d2cdeb34d2fb1b13f03dc904f53e6c5d228745b0635ada10cd625d"},
 ]
 
 [[package]]

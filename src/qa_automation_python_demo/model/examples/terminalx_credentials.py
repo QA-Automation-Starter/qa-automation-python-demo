@@ -4,9 +4,9 @@
 
 from dataclasses import dataclass
 
-from python_selenium.model.credentials import Credentials
+from qa_automation_python_demo.model.credentials import Credentials
 
 
 @dataclass
-class SwaggerPetstoreCredentials(Credentials):
+class TerminalXCredentials(Credentials):
     pass

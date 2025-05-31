@@ -7,10 +7,10 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
   "PyHamcrest==2.1.0",
-  "qa-testing-utils==0.0.8",
-  "qa-pytest-rest==0.0.8",
-  "qa-pytest-webdriver==0.0.8",
-  "qa-pytest-commons==0.0.8"
+  "qa-testing-utils==0.0.9",
+  "qa-pytest-rest==0.0.9",
+  "qa-pytest-webdriver==0.0.9",
+  "qa-pytest-commons==0.0.9"
 ]
 
 [tool.pdm.dev-dependencies]
@@ -22,7 +22,7 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
-addopts = "--import-mode=importlib --html=report.html --self-contained-html --alluredir=allure-results"
+addopts = "-s --import-mode=importlib --html=report.html --self-contained-html --alluredir=allure-results"
 testpaths = ["tests"]
 pythonpath = ["src"]
 python_files = "*.py"

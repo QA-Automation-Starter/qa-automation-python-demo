@@ -2,13 +2,8 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-from pathlib import Path
 from qa_pytest_rest.rest_configuration import RestConfiguration
 
 
 class SwaggerPetstoreConfiguration(RestConfiguration):
-
-    def __init__(
-            self,
-            path: Path = Path("resources/swagger-petstore-default-config.ini")):
-        super().__init__(path)
+    pass
