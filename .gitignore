@@ -4,10 +4,6 @@ __pycache__/
 # Python environments
 .venv/
 
-# VSCode settings (optional: keep .vscode/settings.json)
-.vscode/*
-!.vscode/settings.json
-
 # Distribution / packaging
 dist/
 .pdm-build
@@ -42,3 +38,4 @@ dist/
 # Miscellaneous
 allure-results
 report.html
+docs/reports/

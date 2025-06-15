@@ -5,20 +5,22 @@ description = "Python demo project for QA Automation"
 authors = [{ name = "Adrian Herscu", email = "adrian.herscu@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.13"
+# NOTE: run pdm install upon changing these dependencies
 dependencies = [
   "PyHamcrest==2.1.0",
-  "qa-testing-utils==0.0.9",
-  "qa-pytest-rest==0.0.9",
-  "qa-pytest-webdriver==0.0.9",
-  "qa-pytest-commons==0.0.9"
+  "qa-testing-utils==0.0.10",
+  "qa-pytest-rest==0.0.10",
+  "qa-pytest-webdriver==0.0.10",
+  "qa-pytest-commons==0.0.10"
 ]
 
 [tool.pdm.dev-dependencies]
 dev = [
   "pytest",
   "pytest-html",
-  "pytest-cov",
   "allure-pytest",
+  "autopep8",
+  "isort",
 ]
 
 [tool.pytest.ini_options]
@@ -35,4 +37,20 @@ requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [tool.pdm.scripts]
-clean = "git clean -fdX"
+clean-all = "git clean -fdX"
+test-all = "pytest"
+install-deps = "pdm install"
+allure-generate = "allure generate allure-results -o docs/reports --clean"
+
+[tool.autopep8]
+max_line_length = 80
+ignore = []
+experimental = true
+
+[tool.isort]
+profile = "black"
+line_length = 80
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
