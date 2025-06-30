@@ -5,15 +5,18 @@
 from dataclasses import asdict
 from typing import Iterator, Self, final
 
-from requests import Request
-from hamcrest.core.matcher import Matcher
 import requests
+from hamcrest.core.matcher import Matcher
+from qa_pytest_rest import HttpMethod, RestSteps
+from qa_testing_utils import Context, adapted_object
+from requests import Request
 
-from qa_automation_python_demo.swagger_petstore_configuration import SwaggerPetstoreConfiguration
-from qa_automation_python_demo.model.examples.swagger_petstore_pet import SwaggerPetstorePet
-from qa_pytest_rest.rest_steps import HttpMethod, RestSteps
-from qa_testing_utils.logger import Context
-from qa_testing_utils.matchers import adapted_object
+from qa_automation_python_demo.model.examples.swagger_petstore_pet import (
+    SwaggerPetstorePet,
+)
+from qa_automation_python_demo.swagger_petstore_configuration import (
+    SwaggerPetstoreConfiguration,
+)
 
 
 @final

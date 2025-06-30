@@ -3,9 +3,15 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from typing import List, final
-from qa_automation_python_demo.model.examples.terminalx_credentials import TerminalXCredentials
-from qa_automation_python_demo.model.examples.terminalx_user import TerminalXUser
-from qa_pytest_webdriver.selenium_configuration import SeleniumConfiguration
+
+from qa_pytest_webdriver import SeleniumConfiguration
+
+from qa_automation_python_demo.model.examples.terminalx_credentials import (
+    TerminalXCredentials,
+)
+from qa_automation_python_demo.model.examples.terminalx_user import (
+    TerminalXUser,
+)
 
 
 class TerminalXConfiguration(SeleniumConfiguration):

@@ -3,11 +3,17 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import random
+
 from hamcrest import is_  # type: ignore
-from qa_automation_python_demo.model.examples.terminalx_user import TerminalXUser
-from qa_pytest_webdriver.selenium_tests import SeleniumTests
-from qa_automation_python_demo.terminalx_configuration import TerminalXConfiguration
-from qa_testing_utils.matchers import contains_string_ignoring_case, traced, yields_item
+from qa_pytest_webdriver import SeleniumTests
+from qa_testing_utils import contains_string_ignoring_case, tracing, yields_item
+
+from qa_automation_python_demo.model.examples.terminalx_user import (
+    TerminalXUser,
+)
+from qa_automation_python_demo.terminalx_configuration import (
+    TerminalXConfiguration,
+)
 from qa_automation_python_demo.terminalx_steps import TerminalXSteps
 
 
@@ -32,5 +38,11 @@ class TerminalXTests(SeleniumTests[TerminalXSteps, TerminalXConfiguration]):
         for word in ["hello", "kitty"]:
             (self.steps
              .when.searching_for(word)
-             .then.the_search_hints(yields_item(traced(
+             .then.the_search_hints(yields_item(tracing(
+                 contains_string_ignoring_case(word)))))
+
+        for word in ["hello", "kitty"]:
+            (self.steps
+             .when.searching_for(word)
+             .then.the_search_hints(yields_item(tracing(
                  contains_string_ignoring_case(word)))))

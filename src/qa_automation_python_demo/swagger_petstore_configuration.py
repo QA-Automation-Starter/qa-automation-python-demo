@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-from qa_pytest_rest.rest_configuration import RestConfiguration
+from qa_pytest_rest import RestConfiguration
 
 
 class SwaggerPetstoreConfiguration(RestConfiguration):
