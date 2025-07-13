@@ -4,10 +4,13 @@
 
 from typing import Self
 
-from qa_automation_python_demo.amazon_configuration import AmazonConfiguration
+from hamcrest.core import is_
 from qa_pytest_webdriver.selenium_steps import By, SeleniumSteps
 from qa_testing_utils.logger import Context
+from qa_testing_utils.matchers import adapted_object
 from selenium.webdriver.remote.webdriver import WebDriver
+
+from qa_automation_python_demo.amazon_configuration import AmazonConfiguration
 
 
 class AmazonSteps[TConfiguration: AmazonConfiguration](
@@ -51,8 +54,10 @@ class AmazonSteps[TConfiguration: AmazonConfiguration](
         return self.clicking(
             By.xpath("//input[@name='proceedToRetailCheckout']"))
 
-    # @Context.traced
-    # def signin_required(self) -> Self:
-    #     return self.the_element(
-    #         By.id("?"),
-    #         lambda element: element.text == "Sign in or create account")
+    @Context.traced
+    def signin_required(self) -> Self:
+        return self.the_element(
+            By.id("?"),
+            adapted_object(
+                lambda element: element.text,
+                is_("Sign in or create account")))
