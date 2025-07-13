@@ -4,7 +4,7 @@
 
 from typing import Self
 
-from hamcrest.core import is_
+from hamcrest.core import is_  # type: ignore
 from qa_pytest_webdriver.selenium_steps import By, SeleniumSteps
 from qa_testing_utils.logger import Context
 from qa_testing_utils.matchers import adapted_object
