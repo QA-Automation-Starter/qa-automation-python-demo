@@ -39,3 +39,4 @@ dist/
 allure-results
 report.html
 docs/reports/
+*.zip
