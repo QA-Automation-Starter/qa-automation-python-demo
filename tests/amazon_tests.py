@@ -44,4 +44,3 @@ class AmazonTests(
             self._web_driver.set_window_size(1920, 1080)  # type: ignore
         else:
             super().setup_method()
-            super().setup_method()
