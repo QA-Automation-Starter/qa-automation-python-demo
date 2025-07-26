@@ -35,7 +35,8 @@ class AmazonTests(
         from selenium.webdriver.firefox.options import Options as FirefoxOptions
         from selenium.webdriver.firefox.service import Service as FirefoxService
         from webdriver_manager.firefox import GeckoDriverManager
-        if self._configuration.parser["selenium"]["browser_type"] == "firefox":
+        if self._configuration.parser.has_option("selenium", "browser_type") \
+                and self._configuration.parser["selenium"]["browser_type"] == "firefox":
             # trigger with:
             # pytest --config selenium:browser_type=firefox tests/amazon_tests.py::AmazonTests
             options = FirefoxOptions()
