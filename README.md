@@ -1,4 +1,4 @@
-# Python Selenium Example Project
+# Python Selenium and Playwright Example Project
 
 This is a minimal Python test automation project using
 [Python QA Automation Starter](https://python.qa-automation-starter.aherscu.dev),
@@ -9,7 +9,7 @@ functionality and API-driven operations.
 
 - ✅ Easy-to-read step-based (BDD) test structure
 - ✅ Pytest integration for flexible test discovery
-- ✅ Selenium WebDriver example with Chrome
+- ✅ Selenium WebDriver and Playwright examples with Chrome
 - ✅ REST API example
 - ✅ GitHub Codespaces-compatible development container
 -   Allure report in BDD format
@@ -53,6 +53,7 @@ Requirements:
 
 Following PDM scripts are defined:
 - `pdm run install-deps` -- to install/update dependencies
+- `pdm run playwright-install` -- for Playwright support
 - `pdm run allure-generate` -- to generate Allure dashboard
 
 > NOTE: for other scripts look into [pyproject.toml](pyproject.toml); these are

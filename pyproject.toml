@@ -11,6 +11,7 @@ dependencies = [
   "qa-testing-utils==0.0.13",
   "qa-pytest-rest==0.0.13",
   "qa-pytest-webdriver==0.0.13",
+  "qa-pytest-playwright==0.0.13",
   "qa-pytest-commons==0.0.13"
 ]
 
@@ -40,6 +41,7 @@ build-backend = "pdm.backend"
 clean-all = "git clean -fdX"
 test-all = "pytest"
 install-deps = "pdm install"
+playwright-install = "playwright install"
 allure-generate = "allure generate allure-results -o docs/reports --clean"
 
 [tool.autopep8]
