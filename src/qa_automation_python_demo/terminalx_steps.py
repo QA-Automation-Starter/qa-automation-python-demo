@@ -5,9 +5,9 @@
 from typing import Iterator, Self, final
 
 from hamcrest.core.matcher import Matcher
-from qa_pytest_webdriver import By, SeleniumSteps
+from qa_pytest_commons import By, UiContext, UiElement
+from qa_pytest_webdriver import SeleniumSteps
 from qa_testing_utils import Context, adapted_iterator, adapted_object
-from selenium.webdriver.remote.webdriver import WebDriver
 
 from qa_automation_python_demo.model.examples.terminalx_credentials import (
     TerminalXCredentials,
@@ -20,10 +20,8 @@ from qa_automation_python_demo.terminalx_configuration import (
 @final
 class TerminalXSteps(SeleniumSteps[TerminalXConfiguration]):
     @Context.traced
-    def terminalx(self, driver: WebDriver) -> Self:
-        self._web_driver = driver
-        self._web_driver.get(self.configured.landing_page)
-        return self
+    def terminalx(self, driver: UiContext[UiElement]) -> Self:
+        return self.ui_context(driver).at(self.configured.entry_point)
 
     def clicking_login(self) -> Self:
         return self.clicking(By.xpath("//div[contains(text(), 'התחברות')]"))

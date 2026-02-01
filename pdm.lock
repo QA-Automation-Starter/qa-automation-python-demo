@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = []
 lock_version = "4.5.0"
-content_hash = "sha256:e22e96359e10a4ecd49bd34e971727b5ff5e9d91d9edb850348e8de87c446663"
+content_hash = "sha256:478a63d8666855fab84267392cab77f32f4108b3611475b258b8b5f18f8e0cf7"
 
 [[metadata.targets]]
 requires_python = ">=3.13"
@@ -327,7 +327,7 @@ files = [
 
 [[package]]
 name = "pytest"
-version = "8.4.0"
+version = "8.4.1"
 requires_python = ">=3.9"
 summary = "pytest: simple powerful testing with Python"
 dependencies = [
@@ -340,8 +340,8 @@ dependencies = [
     "tomli>=1; python_version < \"3.11\"",
 ]
 files = [
-    {file = "pytest-8.4.0-py3-none-any.whl", hash = "sha256:f40f825768ad76c0977cbacdf1fd37c6f7a468e460ea6a0636078f8972d4517e"},
-    {file = "pytest-8.4.0.tar.gz", hash = "sha256:14d920b48472ea0dbf68e45b96cd1ffda4705f33307dcc86c676c1b5104838a6"},
+    {file = "pytest-8.4.1-py3-none-any.whl", hash = "sha256:539c70ba6fcead8e78eebbf1115e8b589e7565830d7d006a8723f19ac8a0afb7"},
+    {file = "pytest-8.4.1.tar.gz", hash = "sha256:7c67fd69174877359ed9371ec3af8a3d2b04741818c51e5e99cc1742251fa93c"},
 ]
 
 [[package]]
@@ -384,7 +384,7 @@ files = [
 
 [[package]]
 name = "qa-pytest-commons"
-version = "0.0.12"
+version = "0.0.13"
 requires_python = ">=3.13"
 summary = ""
 dependencies = [
@@ -393,26 +393,26 @@ dependencies = [
     "more-itertools==10.7.0",
     "ppretty==1.3",
     "pyfunctional==1.5.0",
-    "pytest==8.4.0",
+    "pytest==8.4.1",
     "qa-testing-utils",
     "returns==0.25.0",
     "tenacity==9.1.2",
 ]
 files = [
-    {file = "qa_pytest_commons-0.0.12-py3-none-any.whl", hash = "sha256:5cb75ed43c6bf22b8f02d15204ed51ee3b49695f432aa379cd4c44b9e993c66c"},
-    {file = "qa_pytest_commons-0.0.12.tar.gz", hash = "sha256:d43fd85d74cb0d742ea0973106a2551cd94ba23c85094911a940a1cb17258f88"},
+    {file = "qa_pytest_commons-0.0.13-py3-none-any.whl", hash = "sha256:52348152e16c0bbf3af30519ddbca77980e8c0a49bebb3d596456f350fe98b75"},
+    {file = "qa_pytest_commons-0.0.13.tar.gz", hash = "sha256:d5a4b31a5f5894e50447c30e6fa56e5c199a0332295f59d44a3e8d0f4a3e54b4"},
 ]
 
 [[package]]
 name = "qa-pytest-rest"
-version = "0.0.12"
+version = "0.0.13"
 requires_python = ">=3.13"
 summary = ""
 dependencies = [
     "PyHamcrest==2.1.0",
     "more-itertools==10.7.0",
     "pyfunctional==1.5.0",
-    "pytest==8.4.0",
+    "pytest==8.4.1",
     "qa-pytest-commons",
     "qa-testing-utils",
     "requests==2.32.4",
@@ -420,20 +420,20 @@ dependencies = [
     "tenacity==9.1.2",
 ]
 files = [
-    {file = "qa_pytest_rest-0.0.12-py3-none-any.whl", hash = "sha256:146feaea6d76f7a22c2ad1c2fa6ae62c3ec127d45eac02ccdcd5d4e71b878b56"},
-    {file = "qa_pytest_rest-0.0.12.tar.gz", hash = "sha256:c4924a3860aee15f506f4af9327dc9f6d66402b14110fe84e5633327ed1f5dfe"},
+    {file = "qa_pytest_rest-0.0.13-py3-none-any.whl", hash = "sha256:1c857bbf8bcb64e15c0cc39d340862dd3023de0315124452c32fcab4c14fc1d9"},
+    {file = "qa_pytest_rest-0.0.13.tar.gz", hash = "sha256:075e5dd6924e831744dcee6fa473468961228714eeacb4892e159443fc9d6a24"},
 ]
 
 [[package]]
 name = "qa-pytest-webdriver"
-version = "0.0.12"
+version = "0.0.13"
 requires_python = ">=3.13"
 summary = "PyTest WebDriver library"
 dependencies = [
     "PyHamcrest==2.1.0",
     "more-itertools==10.7.0",
     "pyfunctional==1.5.0",
-    "pytest==8.4.0",
+    "pytest==8.4.1",
     "qa-pytest-commons",
     "qa-testing-utils",
     "returns==0.25.0",
@@ -442,13 +442,13 @@ dependencies = [
     "webdriver-manager==4.0.2",
 ]
 files = [
-    {file = "qa_pytest_webdriver-0.0.12-py3-none-any.whl", hash = "sha256:b7d5dd53b7089cc342b056b3d9411c1713f22cb84c258a8c366ffbe6fb7f00aa"},
-    {file = "qa_pytest_webdriver-0.0.12.tar.gz", hash = "sha256:d9dd675683872053cbd80cb9b0fcd32501d20e2eafc6a5ebef93baddc3607d9d"},
+    {file = "qa_pytest_webdriver-0.0.13-py3-none-any.whl", hash = "sha256:f0674f2d441c79584354f3aefdf89742630677655b661f13b720b26efcfbb832"},
+    {file = "qa_pytest_webdriver-0.0.13.tar.gz", hash = "sha256:0c65ad528c28d7274e8f1cb6088ad2917cbf3620b858579bab8586001d681b47"},
 ]
 
 [[package]]
 name = "qa-testing-utils"
-version = "0.0.12"
+version = "0.0.13"
 requires_python = ">=3.13"
 summary = "QA testing utilities"
 dependencies = [
@@ -457,12 +457,12 @@ dependencies = [
     "more-itertools==10.7.0",
     "ppretty==1.3",
     "pyfunctional==1.5.0",
-    "pytest==8.4.0",
+    "pytest==8.4.1",
     "returns==0.25.0",
 ]
 files = [
-    {file = "qa_testing_utils-0.0.12-py3-none-any.whl", hash = "sha256:447b4488415115c6f1aa345634dd1b7ee77a29f6968ec92cb0f060cfe2542fa0"},
-    {file = "qa_testing_utils-0.0.12.tar.gz", hash = "sha256:8dd9fbef081e13d44c1992fdd5f36002b30db4711c80aafa816f4fb49ea07f0d"},
+    {file = "qa_testing_utils-0.0.13-py3-none-any.whl", hash = "sha256:f921330e8922a602bcd16dc4764bb1d4ba2c1936dd02e234842b12c830ef18d0"},
+    {file = "qa_testing_utils-0.0.13.tar.gz", hash = "sha256:44424b6ba1662291edffa7ffb27f48017af42c47cd8caa650d16db185780a28f"},
 ]
 
 [[package]]

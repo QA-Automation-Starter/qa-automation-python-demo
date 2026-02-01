@@ -22,7 +22,7 @@ class AmazonTests(
         does not ship to Israel, and adding to cart will be disabled.
         '''
         (self.steps
-         .given.amazon(self.web_driver)
+         .given.amazon(self.ui_context)
          .when.searching_for("mobile phone")  # mobile does not return phones
          .and_.selecting_result(2)  # 3rd result not always shown
          .and_.adding_to_cart()

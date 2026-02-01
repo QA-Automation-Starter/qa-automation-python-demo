@@ -5,10 +5,10 @@
 from typing import Self
 
 from hamcrest.core import is_  # type: ignore
-from qa_pytest_webdriver.selenium_steps import By, SeleniumSteps
+from qa_pytest_commons import By, UiContext, UiElement
+from qa_pytest_webdriver.selenium_steps import SeleniumSteps
 from qa_testing_utils.logger import Context
 from qa_testing_utils.matchers import adapted_object
-from selenium.webdriver.remote.webdriver import WebDriver
 
 from qa_automation_python_demo.amazon_configuration import AmazonConfiguration
 
@@ -22,18 +22,16 @@ class AmazonSteps[TConfiguration: AmazonConfiguration](
         TConfiguration: The configuration type, must be a TerminalXConfiguration.
     """
     @Context.traced
-    def amazon(self, driver: WebDriver) -> Self:
+    def amazon(self, driver: UiContext[UiElement]) -> Self:
         """
         Sets the Selenium WebDriver and navigates to the landing page.
 
         Args:
-            driver (WebDriver): The Selenium WebDriver instance.
+            driver (UiContext[UiElement]): The UI context instance.
         Returns:
             Self: The current step instance for chaining.
         """
-        self._web_driver = driver
-        self._web_driver.get(self.configured.landing_page)
-        return self
+        return self.ui_context(driver).at(self.configured.entry_point)
 
     @Context.traced
     def searching_for(self, text: str) -> Self:
