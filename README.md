@@ -99,3 +99,8 @@ python-selenium/
 - Add GitHub Actions workflow for CI
 - Add browser matrix support (Safari, Edge)
 - Extend test examples (API + UI)
+
+## Known Issues
+
+1. selenium tests will to find an arm64 driver for linux
+2. kafka tests are not suported on arm64 on windows
