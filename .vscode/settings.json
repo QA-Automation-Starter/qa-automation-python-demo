@@ -1,7 +1,8 @@
 {
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000,
-    "python.defaultInterpreterPath": ".venv/bin/python",
+    // NOTE: setting not cross platform
+    //"python.defaultInterpreterPath": ".venv/bin/python",
     "python.terminal.activateEnvironment": true,
     "python.testing.pytestArgs": [
         "-s",
